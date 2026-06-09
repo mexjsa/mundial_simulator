@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.pyo
+verify_deliverables.py
+accesos a suscripciones.txt
