@@ -96,6 +96,11 @@ function setupEventListeners() {
     resetPredictions();
   });
 
+  // Print Button
+  document.getElementById("btn-print").addEventListener("click", () => {
+    window.print();
+  });
+
   // Filters
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {

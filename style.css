@@ -1017,3 +1017,159 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
+.brand-text h1 a:hover {
+  text-decoration: underline !important;
+}
+
+@media print {
+  /* Hide UI elements */
+  .app-header, 
+  .app-nav, 
+  .filters-row, 
+  .description,
+  .app-footer,
+  .predictor-buttons,
+  .bracket-view-toggle,
+  #btn-print,
+  #btn-reset,
+  #btn-simulate,
+  .sim-controls {
+    display: none !important;
+  }
+  
+  /* Reset colors for printing */
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+  }
+  
+  .app-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+  }
+  
+  .tab-pane.active {
+    display: block !important;
+  }
+  
+  /* Match Card printing optimization */
+  .match-card {
+    background-color: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    color: #000000 !important;
+  }
+  
+  .match-info-top {
+    border-bottom: 1px solid #cccccc !important;
+    color: #555555 !important;
+  }
+  
+  .flag-container {
+    box-shadow: none !important;
+    border: 1px solid #dddddd !important;
+  }
+  
+  .score-input {
+    background-color: #ffffff !important;
+    border: 1px solid #999999 !important;
+    color: #000000 !important;
+  }
+  
+  .prob-pill {
+    background: #f0f0f0 !important;
+    border: 1px solid #cccccc !important;
+    color: #333333 !important;
+  }
+  
+  .prob-pill.highest {
+    font-weight: bold !important;
+    border: 1.5px solid #000000 !important;
+  }
+  
+  .prob-pill.highest:nth-child(1) {
+    background-color: #e2fbe8 !important;
+    color: #0d5c1e !important;
+    border-color: #00e676 !important;
+  }
+  
+  .prob-pill.highest:nth-child(2) {
+    background-color: #e6f0fa !important;
+    color: #0f4b8f !important;
+    border-color: #2563eb !important;
+  }
+  
+  .prob-pill.highest:nth-child(3) {
+    background-color: #fbeae8 !important;
+    color: #8c1c13 !important;
+    border-color: #ff1744 !important;
+  }
+  
+  /* Standings / Group Card print layout */
+  .group-card {
+    background-color: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  
+  .group-card h3 {
+    border-bottom: 2px solid #000000 !important;
+    color: #000000 !important;
+  }
+  
+  .standings-table th {
+    border-bottom: 1.5px solid #999999 !important;
+    color: #000000 !important;
+  }
+  
+  .standings-table td {
+    border-bottom: 1px solid #eeeeee !important;
+  }
+  
+  /* Bracket / tree print optimization */
+  .bracket-scroll-wrapper {
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .bracket-matchup {
+    background-color: #ffffff !important;
+    border: 1px solid #999999 !important;
+    box-shadow: none !important;
+  }
+  
+  .bracket-team-slot.highest-prob {
+    background-color: #e2fbe8 !important;
+    border: 1px solid #00e676 !important;
+  }
+  
+  /* Awards tables */
+  .award-card {
+    background-color: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  
+  .award-card-header {
+    border-bottom: 2px solid #000000 !important;
+  }
+  
+  .awards-table th {
+    border-bottom: 1.5px solid #999999 !important;
+  }
+  
+  .awards-table td {
+    border-bottom: 1px solid #eeeeee !important;
+  }
+}
+
