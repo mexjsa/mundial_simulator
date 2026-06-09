@@ -267,6 +267,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.5rem;
 }
 
+.methodology-note {
+  background-color: var(--accent-cream);
+  border-left: 4px solid var(--accent-gold);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.methodology-note strong {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
 /* TAB 1: FIXTURES LAYOUT */
 .fixtures-header {
   margin-bottom: 1.5rem;
