@@ -1022,6 +1022,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media print {
+  @page {
+    size: landscape;
+    margin: 0.5cm;
+  }
+
   /* Hide UI elements */
   .app-header, 
   .app-nav, 
@@ -1139,6 +1144,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #ffffff !important;
     border: none !important;
     box-shadow: none !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  .bracket-tree {
+    zoom: 0.62 !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: max-content !important;
   }
   
   .bracket-matchup {
