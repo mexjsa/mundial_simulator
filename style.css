@@ -172,13 +172,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--accent-cream);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent-cream);
+  color: var(--text-main);
+  border-color: var(--text-main);
 }
 
 /* Navigation Bar */
@@ -976,10 +977,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prob-pill.highest {
-  background-color: var(--accent-gold);
-  color: #ffffff;
-  border-color: var(--accent-gold);
   font-weight: 700;
+  border-color: transparent;
+}
+
+.prob-pill.highest:nth-child(1) {
+  background-color: var(--win-color);
+  color: #08090c;
+}
+
+.prob-pill.highest:nth-child(2) {
+  background-color: var(--draw-color);
+  color: #ffffff;
+}
+
+.prob-pill.highest:nth-child(3) {
+  background-color: var(--loss-color);
+  color: #ffffff;
 }
 
 .team-name-label {
