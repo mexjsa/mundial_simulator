@@ -9,8 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
+  <!-- Lock Screen Overlay -->
+  <div id="lock-screen" class="lock-screen-overlay">
+    <div class="lock-card">
+      <span class="lock-symbol">Σ</span>
+      <h2>Simulador de resultados Nexos</h2>
+      <p class="lock-subtitle">ACCESO EXCLUSIVO</p>
+      <p class="lock-desc">Para ingresar al simulador interactivo y realizar tus predicciones del Mundial 2026, te invitamos a realizar una pequeña donación para apoyar este desarrollo estadístico y de análisis.</p>
+      
+      <div class="lock-buttons">
+        <a href="https://buymeacoffee.com/juansancheu" target="_blank" id="btn-donate" class="btn btn-primary">
+          ☕ Donar y Apoyar
+        </a>
+        <button id="btn-unlock" class="btn btn-secondary">
+          🔓 Ingresar al Simulador
+        </button>
+      </div>
+      <p class="lock-footer">Las donaciones ayudan a mantener actualizadas las bases de datos y la capacidad del servidor.</p>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="app-header">
     <div class="header-container">
@@ -66,6 +87,18 @@
         <div class="methodology-note">
           <strong>Nota Metodológica:</strong> Las probabilidades individuales y del torneo se calculan mediante un modelo de simulación de Monte Carlo de 50,000 ejecuciones. Los goles de cada partido se modelan estadísticamente utilizando una distribución de Poisson basada en la fuerza relativa ofensiva y defensiva de cada selección (ratings Elo y xG esperados). Los resultados sugeridos corresponden al escenario con la mayor probabilidad matemática simple.
         </div>
+        
+        <!-- Layout Controls -->
+        <div class="layout-controls-row">
+          <a href="Mundial 2026 (fase de grupos) - Plantilla.xlsx" class="btn btn-secondary" download>
+            📥 Descargar Plantilla Vacía
+          </a>
+          <label class="btn btn-secondary btn-file-upload">
+            📤 Subir Quiniela (Excel)
+            <input type="file" id="layout-file-input" accept=".xlsx, .xls" style="display: none;">
+          </label>
+        </div>
+        
         <div class="filters-row">
           <button class="filter-btn active" data-filter="all">Todos los Partidos</button>
           <button class="filter-btn" data-filter="r1">Jornada 1</button>

@@ -27,6 +27,13 @@ let state = {
 
 // Initialize application
 window.addEventListener("DOMContentLoaded", () => {
+  // Check lock screen status
+  const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
+  const lockScreen = document.getElementById("lock-screen");
+  if (isUnlocked && lockScreen) {
+    lockScreen.classList.add("hidden");
+  }
+
   initData();
   setupEventListeners();
   renderFixtures();
@@ -130,6 +137,24 @@ function setupEventListeners() {
     document.getElementById("bracket-horizontal-container").classList.add("hidden");
     document.getElementById("bracket-vertical-container").classList.remove("hidden");
   });
+
+  // Lock screen unlock button listener
+  const btnUnlock = document.getElementById("btn-unlock");
+  if (btnUnlock) {
+    btnUnlock.addEventListener("click", () => {
+      localStorage.setItem("nexos_sim_unlocked", "true");
+      const lockScreen = document.getElementById("lock-screen");
+      if (lockScreen) {
+        lockScreen.classList.add("hidden");
+      }
+    });
+  }
+
+  // Layout file upload listener
+  const layoutInput = document.getElementById("layout-file-input");
+  if (layoutInput) {
+    layoutInput.addEventListener("change", handleLayoutUpload);
+  }
 }
 
 // Switch tabs
@@ -1428,4 +1453,130 @@ function factorial(n) {
   let res = 1;
   for (let i = 2; i <= n; i++) res *= i;
   return res;
+}
+
+// Normalización de nombres de equipos en español
+function normalizeTeamName(name) {
+  if (!name) return "";
+  let n = name.toString().toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[.\-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  // Manejar abreviación específica de Bosnia y Herzegovina
+  if (n === "bosnia y herzeg") {
+    n = "bosnia y herzegovina";
+  }
+  return n;
+}
+
+// Procesar la subida del Excel
+function handleLayoutUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      const data = new Uint8Array(evt.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+      
+      // Buscar hoja de "Mundial"
+      const sheetName = workbook.SheetNames.find(n => n.toLowerCase() === 'mundial') || workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      if (!sheet) {
+        throw new Error("No se encontró la hoja de cálculo en el archivo.");
+      }
+
+      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      if (!rows || rows.length < 2) {
+        throw new Error("El archivo está vacío o no tiene el formato correcto.");
+      }
+
+      const headerRow = rows[0];
+      const colLocalIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'local');
+      const colResultIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'resultado');
+      const colVisitaIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'visita');
+
+      if (colLocalIdx === -1 || colResultIdx === -1 || colVisitaIdx === -1) {
+        throw new Error("El archivo no tiene las columnas 'Local', 'Resultado' y 'Visita'.");
+      }
+
+      // Crear mapa de partidos en JS para buscar de manera eficiente
+      const fixtureMap = {};
+      WORLD_CUP_DATA.fixtures.forEach(f => {
+        const key = `${normalizeTeamName(f.home_es)} vs ${normalizeTeamName(f.away_es)}`;
+        fixtureMap[key] = f;
+      });
+
+      // Limpiar predicciones previas en memoria
+      WORLD_CUP_DATA.fixtures.forEach(f => {
+        state.userPredictions[f.id] = {
+          scoreHome: null,
+          scoreAway: null,
+          outcome: null
+        };
+      });
+
+      let parsedCount = 0;
+      let matchedCount = 0;
+
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (!row || row.length === 0) continue;
+
+        const localVal = row[colLocalIdx];
+        const visitaVal = row[colVisitaIdx];
+        const resultVal = row[colResultIdx];
+
+        if (!localVal || !visitaVal) continue;
+
+        parsedCount++;
+
+        const normLocal = normalizeTeamName(localVal);
+        const normVisita = normalizeTeamName(visitaVal);
+        const key = `${normLocal} vs ${normVisita}`;
+
+        const fixture = fixtureMap[key];
+        if (fixture) {
+          matchedCount++;
+          const valStr = resultVal ? resultVal.toString().trim().toUpperCase() : "";
+          if (valStr === "L" || valStr === "E" || valStr === "V") {
+            state.userPredictions[fixture.id].outcome = valStr;
+            state.userPredictions[fixture.id].scoreHome = null;
+            state.userPredictions[fixture.id].scoreAway = null;
+          } else if (valStr.indexOf("-") !== -1 || valStr.indexOf(":") !== -1) {
+            const delimiter = valStr.indexOf("-") !== -1 ? "-" : ":";
+            const parts = valStr.split(delimiter);
+            if (parts.length === 2) {
+              const hScore = parseInt(parts[0].trim());
+              const aScore = parseInt(parts[1].trim());
+              if (!isNaN(hScore) && !isNaN(aScore)) {
+                state.userPredictions[fixture.id].scoreHome = hScore;
+                state.userPredictions[fixture.id].scoreAway = aScore;
+                if (hScore > aScore) state.userPredictions[fixture.id].outcome = "L";
+                else if (hScore < aScore) state.userPredictions[fixture.id].outcome = "V";
+                else state.userPredictions[fixture.id].outcome = "E";
+              }
+            }
+          }
+        }
+      }
+
+      // Reiniciar el input para permitir subir el mismo archivo consecutivamente
+      e.target.value = "";
+
+      // Re-renderizar y simular en memoria
+      renderFixtures();
+      runSimulation(false);
+
+      alert(`¡Carga exitosa! Se procesaron ${parsedCount} partidos y se actualizaron ${matchedCount} predicciones en el simulador.`);
+    } catch (err) {
+      console.error(err);
+      alert("Error al cargar el archivo de quiniela: " + err.message);
+      e.target.value = "";
+    }
+  };
+  reader.readAsArrayBuffer(file);
 }
