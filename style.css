@@ -2,7 +2,7 @@
 :root {
   --primary-navy: #08090c;
   --primary-navy-rgb: 8, 9, 12;
-  --accent-gold: #2563eb;
+  --accent-gold: #00e676;
   --accent-cream: #1e2230;
   --bg-main: #0c0d12;
   --bg-card: #12141c;
@@ -11,7 +11,7 @@
   --text-muted: #7f8b9e;
   
   --win-color: #00e676;
-  --draw-color: #55596a;
+  --draw-color: #2563eb;
   --loss-color: #ff1744;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -120,8 +120,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .control-group select {
-  background: var(--primary-navy);
-  color: var(--accent-cream);
+  background: var(--accent-cream);
+  color: var(--text-main);
   border: 1px solid var(--border-color);
   padding: 0.4rem 0.75rem;
   font-size: 0.85rem;
@@ -133,6 +133,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .control-group select:focus {
   border-color: var(--accent-gold);
+}
+
+.control-group select option {
+  background-color: var(--bg-card);
+  color: var(--text-main);
 }
 
 /* Buttons */
@@ -152,13 +157,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background-color: var(--accent-gold);
-  color: #ffffff;
+  color: #08090c;
 }
 
 .btn-primary:hover {
-  background-color: #3b82f6;
+  background-color: #00ff66;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 230, 118, 0.4);
 }
 
 .btn-primary:active {
@@ -324,9 +329,15 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--border-radius-sm);
   border: 1px solid var(--border-color);
   background: var(--bg-card);
+  color: var(--text-main);
   font-size: 0.85rem;
   outline: none;
   cursor: pointer;
+}
+
+.filter-group-select select option {
+  background-color: var(--bg-card);
+  color: var(--text-main);
 }
 
 /* Fixtures list */
@@ -358,7 +369,7 @@ h1, h2, h3, h4, h5, h6 {
 .match-card:hover {
   transform: translateY(-2px);
   border-color: var(--accent-gold);
-  box-shadow: 0 10px 25px -10px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 10px 25px -10px rgba(0, 230, 118, 0.25);
 }
 
 .match-info-top {
@@ -448,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prob-tag.highest {
-  background: rgba(37, 99, 235, 0.2);
+  background: rgba(0, 230, 118, 0.2);
   color: #ffffff;
   font-weight: 700;
 }
@@ -698,7 +709,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bracket-matchup:hover {
   border-color: var(--accent-gold);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.25);
 }
 
 .bracket-team-slot {
@@ -712,7 +723,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bracket-team-slot.highest-prob {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(0, 230, 118, 0.15);
   border: 1px solid var(--accent-gold);
 }
 
