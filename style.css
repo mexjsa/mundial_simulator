@@ -1,23 +1,23 @@
 /* Custom properties / Design System */
 :root {
-  --primary-navy: #01002e;
-  --primary-navy-rgb: 1, 0, 46;
-  --accent-gold: #c39a3f;
-  --accent-cream: #faf7f0;
-  --bg-main: #f5f4ef;
-  --bg-card: #ffffff;
-  --border-color: #bcb3a0;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  --primary-navy: #08090c;
+  --primary-navy-rgb: 8, 9, 12;
+  --accent-gold: #2563eb;
+  --accent-cream: #1e2230;
+  --bg-main: #0c0d12;
+  --bg-card: #12141c;
+  --border-color: #232635;
+  --text-main: #ffffff;
+  --text-muted: #7f8b9e;
   
-  --win-color: #10b981;
-  --draw-color: #94a3b8;
-  --loss-color: #ef4444;
+  --win-color: #00e676;
+  --draw-color: #55596a;
+  --loss-color: #ff1744;
   
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-premium: 0 20px 40px -15px rgba(1, 0, 46, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-premium: 0 20px 40px -15px rgba(0, 230, 118, 0.15);
   
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
@@ -45,15 +45,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  color: var(--primary-navy);
+  color: var(--text-main);
 }
 
 /* App Header */
 .app-header {
   background-color: var(--primary-navy);
-  color: var(--accent-cream);
+  color: var(--text-main);
   padding: 1.5rem 2rem;
-  border-bottom: 3px solid var(--accent-gold);
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ff1744 0%, #2563eb 50%, #00e676 100%) 1;
 }
 
 .header-container {
@@ -80,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-text h1 {
-  color: var(--accent-cream);
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -151,13 +152,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background-color: var(--accent-gold);
-  color: var(--primary-navy);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #ebd188;
+  background-color: #3b82f6;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(195, 154, 63, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 .btn-primary:active {
@@ -211,11 +212,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-tab:hover {
-  color: var(--primary-navy);
+  color: #ffffff;
 }
 
 .nav-tab.active {
-  color: var(--primary-navy);
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -226,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 3px;
-  background-color: var(--primary-navy);
+  background-color: var(--accent-gold);
 }
 
 /* App Main Content Area */
@@ -283,25 +284,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .filter-btn {
-  background: var(--bg-main);
+  background: var(--bg-card);
   border: 1px solid var(--border-color);
   padding: 0.4rem 1rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-muted);
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: var(--transition-fast);
 }
 
 .filter-btn:hover {
-  border-color: var(--primary-navy);
+  border-color: var(--accent-gold);
+  color: var(--text-main);
 }
 
 .filter-btn.active {
-  background-color: var(--primary-navy);
-  color: var(--accent-cream);
-  border-color: var(--primary-navy);
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  border-color: var(--accent-gold);
 }
 
 .filter-group-select {
@@ -355,8 +357,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .match-card:hover {
   transform: translateY(-2px);
-  border-color: var(--primary-navy);
-  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px -10px rgba(37, 99, 235, 0.25);
 }
 
 .match-info-top {
@@ -367,7 +369,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  border-bottom: 1px solid #f1f1ee;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
 }
 
@@ -414,12 +416,12 @@ h1, h2, h3, h4, h5, h6 {
   width: 28px;
   height: 20px;
   border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
   overflow: hidden;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: #f1f5f9;
+  background-color: var(--accent-cream);
 }
 
 .flag-img {
@@ -438,7 +440,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Prediction outcomes visual indicators */
 .prob-tag {
-  background: #f1f5f9;
+  background: var(--accent-cream);
   border-radius: 4px;
   padding: 0.1rem 0.3rem;
   font-size: 0.7rem;
@@ -446,8 +448,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prob-tag.highest {
-  background: rgba(1, 0, 46, 0.08);
-  color: var(--primary-navy);
+  background: rgba(37, 99, 235, 0.2);
+  color: #ffffff;
   font-weight: 700;
 }
 
@@ -475,13 +477,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1.5px solid var(--border-color);
   border-radius: var(--border-radius-sm);
   background: var(--accent-cream);
-  color: var(--primary-navy);
+  color: var(--text-main);
   outline: none;
   transition: var(--transition-fast);
 }
 
 .score-input:focus {
-  border-color: var(--primary-navy);
+  border-color: var(--accent-gold);
   background: var(--bg-card);
 }
 
@@ -518,7 +520,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pred-btn:hover {
   background-color: var(--accent-cream);
-  color: var(--primary-navy);
+  color: var(--text-main);
 }
 
 .pred-btn.active[data-outcome="L"] {
@@ -554,13 +556,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .group-card:hover {
   transform: translateY(-2px);
-  border-color: var(--primary-navy);
+  border-color: var(--accent-gold);
 }
 
 .group-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
-  border-bottom: 2px solid var(--primary-navy);
+  border-bottom: 2px solid var(--accent-gold);
   padding-bottom: 0.25rem;
   display: flex;
   justify-content: space-between;
@@ -588,7 +590,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .standings-table td {
   padding: 0.5rem 0.25rem;
-  border-bottom: 1px solid #f1f1ee;
+  border-bottom: 1px solid var(--border-color);
   vertical-align: middle;
 }
 
@@ -617,28 +619,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Color scaling for qualify probability */
 .qual-high {
-  background: rgba(16, 185, 129, 0.15);
-  color: #047857;
+  background: rgba(0, 230, 118, 0.15);
+  color: #00e676;
 }
 
 .qual-med {
-  background: rgba(195, 154, 63, 0.15);
-  color: #856404;
+  background: rgba(255, 179, 0, 0.15);
+  color: #ffb300;
 }
 
 .qual-low {
-  background: rgba(239, 68, 68, 0.15);
-  color: #b91c1c;
+  background: rgba(255, 23, 68, 0.15);
+  color: #ff1744;
 }
 
 /* TAB 3: BRACKET VIEW */
 .bracket-scroll-wrapper {
   overflow-x: auto;
   padding: 2rem 0;
-  background: #fdfdfd;
+  background: var(--bg-card);
   border-radius: var(--border-radius-lg);
   border: 1px dashed var(--border-color);
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* Tree container structure */
@@ -695,8 +697,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bracket-matchup:hover {
-  border-color: var(--primary-navy);
-  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
 }
 
 .bracket-team-slot {
@@ -707,6 +709,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   padding: 0.15rem 0.25rem;
   border-radius: 4px;
+}
+
+.bracket-team-slot.highest-prob {
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid var(--accent-gold);
 }
 
 .bracket-team-name {
@@ -755,7 +762,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bronze-card {
   width: 100%;
-  background: #f1f5f9;
+  background: var(--accent-cream);
   border: 1.5px solid var(--border-color);
   border-radius: var(--border-radius-md);
   padding: 0.75rem;
@@ -793,7 +800,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .award-card-header {
-  border-bottom: 2px solid var(--primary-navy);
+  border-bottom: 2px solid var(--accent-gold);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -824,7 +831,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .awards-table td {
   padding: 0.6rem 0.5rem;
-  border-bottom: 1px solid #f1f1ee;
+  border-bottom: 1px solid var(--border-color);
   vertical-align: middle;
 }
 
@@ -867,7 +874,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .player-name {
   font-weight: 700;
-  color: var(--primary-navy);
+  color: var(--text-main);
 }
 
 .player-pos {
@@ -897,10 +904,11 @@ h1, h2, h3, h4, h5, h6 {
 /* App Footer */
 .app-footer {
   background-color: var(--primary-navy);
-  color: var(--accent-cream);
+  color: var(--text-main);
   padding: 2rem;
   margin-top: 4rem;
-  border-top: 3px solid var(--accent-gold);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #ff1744 0%, #2563eb 50%, #00e676 100%) 1;
   font-size: 0.85rem;
 }
 
@@ -957,9 +965,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prob-pill.highest {
-  background-color: var(--primary-navy);
-  color: var(--accent-cream);
-  border-color: var(--primary-navy);
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  border-color: var(--accent-gold);
   font-weight: 700;
 }
 

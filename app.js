@@ -1142,7 +1142,7 @@ function createMatchupDOM(t1, t2, roundKey) {
   const highest = Math.max(p1, p2);
   
   div.innerHTML = `
-    <div class="bracket-team-slot ${p1 === highest ? 'bg-slate-50' : ''}">
+    <div class="bracket-team-slot ${p1 === highest ? 'highest-prob' : ''}">
       <div style="display: flex; align-items: center; gap: 0.25rem; overflow:hidden;">
         <div class="flag-container" style="width: 14px; height: 10px; border-radius: 1px; flex-shrink: 0;">
           <img class="flag-img" src="${getFlagUrl(t1.fifa)}" alt="${t1.team_es}">
@@ -1151,7 +1151,7 @@ function createMatchupDOM(t1, t2, roundKey) {
       </div>
       <span class="bracket-team-prob">${p1.toFixed(0)}%</span>
     </div>
-    <div class="bracket-team-slot ${p2 === highest ? 'bg-slate-50' : ''}">
+    <div class="bracket-team-slot ${p2 === highest ? 'highest-prob' : ''}">
       <div style="display: flex; align-items: center; gap: 0.25rem; overflow:hidden;">
         <div class="flag-container" style="width: 14px; height: 10px; border-radius: 1px; flex-shrink: 0;">
           <img class="flag-img" src="${getFlagUrl(t2.fifa)}" alt="${t2.team_es}">
