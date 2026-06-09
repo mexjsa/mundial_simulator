@@ -187,12 +187,7 @@ function renderFixtures() {
       <div class="match-vs-row">
         <!-- Home Team -->
         <div class="match-team home">
-          <div class="team-details">
-            <div>${f.home_es}</div>
-            <span class="team-probs">
-              <span class="prob-tag ${win === highest ? 'highest' : ''}">${win}%</span> Local
-            </span>
-          </div>
+          <span class="team-name-label">${f.home_es}</span>
           <div class="flag-container">
             <img class="flag-img" src="${getFlagUrl(f.home_fifa)}" alt="${f.home_es}">
           </div>
@@ -204,6 +199,11 @@ function renderFixtures() {
             <input type="number" min="0" placeholder="-" class="score-input home-score-input" value="${scoreH}" data-match-id="${f.id}">
             <span class="score-divider">:</span>
             <input type="number" min="0" placeholder="-" class="score-input away-score-input" value="${scoreA}" data-match-id="${f.id}">
+          </div>
+          <div class="match-probs-row">
+            <span class="prob-pill ${win === highest ? 'highest' : ''}">${win}% L</span>
+            <span class="prob-pill ${draw === highest ? 'highest' : ''}">${draw}% E</span>
+            <span class="prob-pill ${loss === highest ? 'highest' : ''}">${loss}% V</span>
           </div>
           <div class="predictor-buttons">
             <button class="pred-btn ${pred.outcome === 'L' ? 'active' : ''}" data-match-id="${f.id}" data-outcome="L">L</button>
@@ -217,12 +217,7 @@ function renderFixtures() {
           <div class="flag-container">
             <img class="flag-img" src="${getFlagUrl(f.away_fifa)}" alt="${f.away_es}">
           </div>
-          <div class="team-details">
-            <div>${f.away_es}</div>
-            <span class="team-probs">
-              Visitor <span class="prob-tag ${loss === highest ? 'highest' : ''}">${loss}%</span>
-            </span>
-          </div>
+          <span class="team-name-label">${f.away_es}</span>
         </div>
       </div>
     `;

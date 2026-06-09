@@ -647,9 +647,9 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  min-width: 1200px;
-  padding: 0 2rem;
-  margin: 0 auto;
+  width: max-content;
+  min-width: 100%;
+  padding: 2rem;
 }
 
 .bracket-col {
@@ -658,6 +658,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-around;
   height: 720px; /* fixed height to align columns */
   width: 140px;
+  flex-shrink: 0;
 }
 
 .bracket-col-left {
@@ -729,6 +730,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1.5rem;
   width: 200px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .center-logo {
@@ -934,3 +936,35 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--text-muted);
 }
+
+/* Match Probabilities Pills */
+.match-probs-row {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0.35rem 0;
+}
+
+.prob-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--accent-cream);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.prob-pill.highest {
+  background-color: var(--primary-navy);
+  color: var(--accent-cream);
+  border-color: var(--primary-navy);
+  font-weight: 700;
+}
+
+.team-name-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
