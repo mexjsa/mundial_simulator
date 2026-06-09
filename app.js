@@ -225,6 +225,7 @@ function renderFixtures() {
           <span class="team-name-label">${f.away_es}</span>
         </div>
       </div>
+      <div class="match-stats-panel hidden"></div>
     `;
     
     // Attach score event listeners
@@ -241,6 +242,23 @@ function renderFixtures() {
         const outcome = e.target.getAttribute("data-outcome");
         handleOutcomePrediction(matchId, outcome);
       });
+    });
+    
+    // Accordion toggle click listener
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".score-input") || e.target.closest(".predictor-buttons") || e.target.closest("button")) {
+        return;
+      }
+      const panel = card.querySelector(".match-stats-panel");
+      if (panel) {
+        const isHidden = panel.classList.contains("hidden");
+        // Accordion behavior: close other cards when opening this one
+        if (isHidden) {
+          document.querySelectorAll(".match-stats-panel").forEach(p => p.classList.add("hidden"));
+          renderMatchStats(f, panel);
+        }
+        panel.classList.toggle("hidden");
+      }
     });
     
     container.appendChild(card);
@@ -1226,4 +1244,188 @@ function renderVerticalBracketList(R32, R16, QF, SF, Finalists, Champion) {
       </div>
     </div>
   `;
+}
+
+// ----------------------------------------------------
+// Analytical Match Statistics (FMD Reference)
+// ----------------------------------------------------
+function renderMatchStats(f, panel) {
+  const win = f.win_prob;
+  const draw = f.draw_prob;
+  const loss = f.loss_prob;
+  
+  // Calculate expected goals (xG) using a log-odds difference model
+  const diff = 0.9 * Math.log((win + 0.05) / (loss + 0.05));
+  const total = 3.0 - 1.2 * draw;
+  const lambda = Math.max(0.2, (total + diff) / 2);
+  const mu = Math.max(0.2, (total - diff) / 2);
+  
+  // 1. Goal Probabilities (Poisson)
+  const homeProbs = [];
+  const awayProbs = [];
+  let homeSum = 0;
+  let awaySum = 0;
+  
+  for (let k = 0; k <= 4; k++) {
+    const pHome = (Math.exp(-lambda) * Math.pow(lambda, k)) / factorial(k);
+    const pAway = (Math.exp(-mu) * Math.pow(mu, k)) / factorial(k);
+    homeProbs.push(pHome);
+    awayProbs.push(pAway);
+    homeSum += pHome;
+    awaySum += pAway;
+  }
+  
+  // 5+ goals category
+  homeProbs.push(Math.max(0, 1 - homeSum));
+  awayProbs.push(Math.max(0, 1 - awaySum));
+  
+  // 2. Scoreline Grid (6x6 matrix)
+  const scorelineMatrix = [];
+  let maxScoreProb = -1;
+  let maxScoreH = 0;
+  let maxScoreA = 0;
+  
+  for (let h = 0; h <= 5; h++) {
+    scorelineMatrix[h] = [];
+    for (let a = 0; a <= 5; a++) {
+      const p = homeProbs[h] * awayProbs[a];
+      scorelineMatrix[h][a] = p;
+      if (p > maxScoreProb) {
+        maxScoreProb = p;
+        maxScoreH = h;
+        maxScoreA = a;
+      }
+    }
+  }
+  
+  // 3. Over / Under probabilities
+  let probOver1_5 = 0;
+  let probOver2_5 = 0;
+  let probOver3_5 = 0;
+  
+  for (let h = 0; h <= 5; h++) {
+    for (let a = 0; a <= 5; a++) {
+      const p = scorelineMatrix[h][a];
+      if (h + a > 1) probOver1_5 += p;
+      if (h + a > 2) probOver2_5 += p;
+      if (h + a > 3) probOver3_5 += p;
+    }
+  }
+  
+  // 4. Other Markets
+  const btts = (1 - homeProbs[0]) * (1 - awayProbs[0]);
+  const homeCS = awayProbs[0];
+  const awayCS = homeProbs[0];
+  
+  // Shading helper based on probability
+  function getShadingStyle(prob) {
+    const opacity = Math.min(0.85, prob * 6);
+    const textCol = opacity > 0.4 ? '#08090c' : '#ffffff';
+    return `background-color: rgba(0, 230, 118, ${opacity}); color: ${textCol};`;
+  }
+  
+  const pct = (val) => (val * 100).toFixed(1) + "%";
+  
+  panel.innerHTML = `
+    <div class="stats-panel-content">
+      <div class="stats-header-row">
+        <span>xG Proyectado: <strong>${f.home_es} ${lambda.toFixed(2)}</strong> - <strong>${mu.toFixed(2)} ${f.away_es}</strong></span>
+      </div>
+      
+      <div class="stats-goals-barcharts">
+        <div class="team-goals-chart">
+          <h4>Probabilidad de Goles (${f.home_es})</h4>
+          ${homeProbs.map((p, k) => `
+            <div class="goal-bar-row">
+              <span class="goal-num-lbl">${k === 5 ? '5+' : k}</span>
+              <div class="goal-bar-container">
+                <div class="goal-bar home-bg" style="width: ${p * 100}%"></div>
+              </div>
+              <span class="goal-bar-val">${pct(p)}</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="team-goals-chart">
+          <h4>Probabilidad de Goles (${f.away_es})</h4>
+          ${awayProbs.map((p, k) => `
+            <div class="goal-bar-row">
+              <span class="goal-num-lbl">${k === 5 ? '5+' : k}</span>
+              <div class="goal-bar-container">
+                <div class="goal-bar away-bg" style="width: ${p * 100}%"></div>
+              </div>
+              <span class="goal-bar-val">${pct(p)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="stats-scoreline-matrix">
+        <h4>Probabilidad de Marcador Exacto (%)</h4>
+        <div class="matrix-grid-container">
+          <div class="matrix-header-cell">Goles: ${f.away_es} &rarr;</div>
+          ${[0, 1, 2, 3, 4, '5+'].map(g => `<div class="matrix-header-cell col-lbl">${g}</div>`).join('')}
+          
+          ${[0, 1, 2, 3, 4, 5].map((h) => `
+            <div class="matrix-header-cell row-lbl">${h === 5 ? '5+' : h}</div>
+            ${[0, 1, 2, 3, 4, 5].map(a => {
+              const p = scorelineMatrix[h][a];
+              const isMostLikely = h === maxScoreH && a === maxScoreA;
+              return `
+                <div class="matrix-cell ${isMostLikely ? 'most-likely-outline' : ''}" style="${getShadingStyle(p)}">
+                  ${(p * 100).toFixed(1)}
+                </div>
+              `;
+            }).join('')}
+          `).join('')}
+        </div>
+        <p class="matrix-caption">Marcador más probable: <strong>${f.home_es} ${maxScoreH} - ${maxScoreA} ${f.away_es}</strong> (${(maxScoreProb * 100).toFixed(1)}%)</p>
+      </div>
+      
+      <div class="stats-markets">
+        <div class="market-col">
+          <h4>Over / Under</h4>
+          <div class="market-row">
+            <span>Más de 1.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver1_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver1_5)}</span>
+          </div>
+          <div class="market-row">
+            <span>Más de 2.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver2_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver2_5)}</span>
+          </div>
+          <div class="market-row">
+            <span>Más de 3.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver3_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver3_5)}</span>
+          </div>
+        </div>
+        <div class="market-col">
+          <h4>Otros Mercados</h4>
+          <div class="market-row">
+            <span>Ambos Anotan (BTTS)</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${btts * 100}%; background-color: var(--draw-color);"></div></div>
+            <span class="market-val">${pct(btts)}</span>
+          </div>
+          <div class="market-row">
+            <span>Arco en Cero (${f.home_es})</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${homeCS * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(homeCS)}</span>
+          </div>
+          <div class="market-row">
+            <span>Arco en Cero (${f.away_es})</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${awayCS * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(awayCS)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  let res = 1;
+  for (let i = 2; i <= n; i++) res *= i;
+  return res;
 }

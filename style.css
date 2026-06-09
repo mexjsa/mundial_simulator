@@ -1038,7 +1038,8 @@ h1, h2, h3, h4, h5, h6 {
   #btn-print,
   #btn-reset,
   #btn-simulate,
-  .sim-controls {
+  .sim-controls,
+  .match-stats-panel {
     display: none !important;
   }
   
@@ -1187,3 +1188,222 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+/* Match Stats Panel inside Match Card */
+.match-card {
+  cursor: pointer;
+}
+
+.match-stats-panel {
+  border-top: 1px dashed var(--border-color);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  animation: slideDown 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stats-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.stats-header-row {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--accent-cream);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-goals-barcharts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .stats-goals-barcharts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.team-goals-chart h4,
+.stats-scoreline-matrix h4,
+.market-col h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.goal-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.goal-num-lbl {
+  width: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.goal-bar-container {
+  flex-grow: 1;
+  background-color: var(--accent-cream);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.goal-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.goal-bar.home-bg {
+  background-color: var(--win-color); /* Neon Green */
+}
+
+.goal-bar.away-bg {
+  background-color: var(--loss-color); /* Neon Red */
+}
+
+.goal-bar-val {
+  width: 45px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Scoreline Matrix */
+.stats-scoreline-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.matrix-grid-container {
+  display: grid;
+  grid-template-columns: 100px repeat(6, 1fr);
+  gap: 2px;
+  background-color: var(--border-color);
+  padding: 2px;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+
+.matrix-header-cell {
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.2rem;
+  text-align: center;
+}
+
+.matrix-header-cell.col-lbl,
+.matrix-header-cell.row-lbl {
+  color: var(--text-main);
+  background-color: var(--accent-cream);
+}
+
+.matrix-cell {
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.2rem;
+  transition: transform 0.15s ease;
+}
+
+.matrix-cell.most-likely-outline {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+  font-weight: 800;
+}
+
+.matrix-caption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.matrix-caption strong {
+  color: var(--win-color);
+}
+
+/* Markets formatting */
+.stats-markets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .stats-markets {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.market-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.market-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 45px;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.market-row span {
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.market-progress-bar {
+  background-color: var(--accent-cream);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.market-progress-bar .progress {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.market-val {
+  text-align: right;
+  font-weight: 700;
+  color: var(--text-main);
+}
