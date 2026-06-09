@@ -1,4 +1,4 @@
-// Data compiled from Football Meets Data 50,000 simulations
+// Data compiled from JSA Simulator 50,000 simulations
 const WORLD_CUP_DATA = {
   "fixtures": [
     {

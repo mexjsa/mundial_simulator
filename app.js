@@ -180,7 +180,7 @@ function renderFixtures() {
       <div class="match-info-top">
         <div class="match-kickoff">
           <span>📅 ${f.date}</span>
-          <span>⏰ ${f.kickoff.substring(11, 16)} CET</span>
+          <span>⏰ ${f.kickoff ? f.kickoff.substring(11, 16) + ' CET' : 'TBD'}</span>
         </div>
         <span class="match-group-tag">Grupo ${f.group} - Jornada ${f.round}</span>
       </div>
