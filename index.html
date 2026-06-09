@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundial 2026 Simulator | Football Analytics & Monte Carlo Projections</title>
+  <meta name="description" content="Simulador interactivo del Mundial 2026. Modifique marcadores, ejecute simulaciones Monte Carlo y visualice probabilidades de clasificación y la llave en tiempo real.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="brand-symbol">Σ</span>
+        <div class="brand-text">
+          <h1>Football Meets Data</h1>
+          <p>MUNDIAL 2026 · SIMULADOR</p>
+        </div>
+      </div>
+      
+      <!-- Simulation Controls -->
+      <div class="sim-controls">
+        <div class="control-group">
+          <label for="sim-iterations">Iteraciones:</label>
+          <select id="sim-iterations">
+            <option value="1000">1,000 (Rápido)</option>
+            <option value="2500" selected>2,500 (Recomendado)</option>
+            <option value="5000">5,000 (Preciso)</option>
+          </select>
+        </div>
+        <button id="btn-simulate" class="btn btn-primary">
+          <span class="btn-icon">⚡</span> ¡Simular!
+        </button>
+        <button id="btn-reset" class="btn btn-secondary">
+          Restablecer
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="app-nav">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="fixtures">Partidos</button>
+      <button class="nav-tab" data-tab="standings">Posiciones</button>
+      <button class="nav-tab" data-tab="bracket">Llave de Eliminación</button>
+      <button class="nav-tab" data-tab="awards">Bota de Oro & Asistencias</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="app-content">
+    
+    <!-- Tab 1: Fixtures -->
+    <section id="tab-fixtures" class="tab-pane active">
+      <div class="fixtures-header">
+        <h2>Predicciones e Ingreso de Resultados</h2>
+        <p class="description">Haz clic en los botones de predicción (L, E, V) o escribe marcadores reales en las casillas para fijar resultados. Luego presiona <strong>¡Simular!</strong> para ajustar las proyecciones.</p>
+        <div class="filters-row">
+          <button class="filter-btn active" data-filter="all">Todos los Partidos</button>
+          <button class="filter-btn" data-filter="r1">Jornada 1</button>
+          <button class="filter-btn" data-filter="r2">Jornada 2</button>
+          <button class="filter-btn" data-filter="r3">Jornada 3</button>
+          <div class="filter-group-select">
+            <label for="group-filter">Filtrar Grupo:</label>
+            <select id="group-filter">
+              <option value="all">Todos</option>
+              <option value="A">Grupo A</option>
+              <option value="B">Grupo B</option>
+              <option value="C">Grupo C</option>
+              <option value="D">Grupo D</option>
+              <option value="E">Grupo E</option>
+              <option value="F">Grupo F</option>
+              <option value="G">Grupo G</option>
+              <option value="H">Grupo H</option>
+              <option value="I">Grupo I</option>
+              <option value="J">Grupo J</option>
+              <option value="K">Grupo K</option>
+              <option value="L">Grupo L</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixtures-grid" id="fixtures-container">
+        <!-- Rendered dynamically by app.js -->
+        <div class="loading-spinner">Cargando partidos...</div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Standings -->
+    <section id="tab-standings" class="tab-pane">
+      <div class="standings-header">
+        <h2>Clasificación de Grupos</h2>
+        <p class="description">Resultados esperados en la fase de grupos tras las simulaciones. La probabilidad de clasificación (P. Clasificar) se recalcula dinámicamente si fijas marcadores.</p>
+      </div>
+      <div class="groups-grid" id="groups-container">
+        <!-- Rendered dynamically by app.js -->
+        <div class="loading-spinner">Cargando grupos...</div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Bracket -->
+    <section id="tab-bracket" class="tab-pane">
+      <div class="bracket-header">
+        <h2>Llave de Eliminación Directa</h2>
+        <p class="description">Proyección del árbol de eliminatorias del Mundial 2026. Cada nodo muestra la selección estadísticamente más probable para alcanzar esa instancia de la simulación activa.</p>
+        <div class="bracket-view-toggle">
+          <button class="toggle-btn active" id="btn-bracket-horiz">Vista Horizontal</button>
+          <button class="toggle-btn" id="btn-bracket-vert">Vista Lista</button>
+        </div>
+      </div>
+      
+      <!-- Horizontal Bracket (Scrollable) -->
+      <div class="bracket-scroll-wrapper" id="bracket-horizontal-container">
+        <div class="bracket-tree">
+          <!-- Rounds will be rendered dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Vertical Bracket / Matchup list for mobile -->
+      <div class="bracket-vertical-list hidden" id="bracket-vertical-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Tab 4: Awards -->
+    <section id="tab-awards" class="tab-pane">
+      <div class="awards-grid">
+        <!-- Golden Boot -->
+        <div class="award-card">
+          <div class="award-card-header">
+            <h3>⚽ Carrera por la Bota de Oro</h3>
+            <p>Jugadores con mayor probabilidad de ganar el trofeo al máximo goleador del torneo.</p>
+          </div>
+          <div class="table-responsive">
+            <table class="awards-table" id="table-golden-boot">
+              <thead>
+                <tr>
+                  <th class="col-num">#</th>
+                  <th>Jugador</th>
+                  <th>Selección</th>
+                  <th class="col-right">P(Ganar)</th>
+                  <th class="col-right">Goles(E)</th>
+                  <th class="col-right">P(≥1/2/3)</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-golden-boot">
+                <!-- Rendered dynamically by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Most Assists -->
+        <div class="award-card">
+          <div class="award-card-header">
+            <h3>🅰 Carrera por la Bota de Plata (Asistencias)</h3>
+            <p>Jugadores con mayor probabilidad de liderar el torneo en asistencias de gol.</p>
+          </div>
+          <div class="table-responsive">
+            <table class="awards-table" id="table-most-assists">
+              <thead>
+                <tr>
+                  <th class="col-num">#</th>
+                  <th>Jugador</th>
+                  <th>Selección</th>
+                  <th class="col-right">P(Ganar)</th>
+                  <th class="col-right">Asist(E)</th>
+                  <th class="col-right">P(≥1/2/3)</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-most-assists">
+                <!-- Rendered dynamically by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>© 2026 Football Meets Data & Mundial Simulator. Todos los derechos reservados.</p>
+      <p class="disclaimer">El uso comercial no autorizado de las proyecciones está prohibido. Creado con fines informativos y de entretenimiento.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
