@@ -237,11 +237,12 @@ function renderFixtures() {
     const loss = Math.round(f.loss_prob * 100);
     const highest = Math.max(win, draw, loss);
     
+    const kickoffMX = formatKickoffMX(f.kickoff, f.date);
     card.innerHTML = `
       <div class="match-info-top">
         <div class="match-kickoff">
-          <span>📅 ${f.date}</span>
-          <span>⏰ ${f.kickoff ? f.kickoff.substring(11, 16) + ' CET' : 'TBD'}</span>
+          <span>📅 ${kickoffMX.date}</span>
+          <span>⏰ ${kickoffMX.time}</span>
         </div>
         <span class="match-group-tag">Grupo ${f.group} - Jornada ${f.round}</span>
       </div>
@@ -1684,4 +1685,22 @@ function startAccessTimerLoop() {
   // Ejecución inicial y luego cada segundo
   checkStatus();
   setInterval(checkStatus, 1000);
+}
+
+// Formatear fecha y hora al huso horario de CDMX (UTC-6)
+function formatKickoffMX(kickoffStr, fallbackDate) {
+  if (!kickoffStr) return { date: fallbackDate || "TBD", time: "TBD" };
+  try {
+    const dateObj = new Date(kickoffStr);
+    const datePart = dateObj.toLocaleDateString("sv-SE", { timeZone: "America/Mexico_City" });
+    const timePart = dateObj.toLocaleTimeString("es-MX", {
+      timeZone: "America/Mexico_City",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+    return { date: datePart, time: timePart + " CDMX" };
+  } catch (err) {
+    return { date: fallbackDate || "TBD", time: "TBD" };
+  }
 }
