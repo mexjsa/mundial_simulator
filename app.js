@@ -22,7 +22,9 @@ let state = {
   iterations: 2500,
   userPredictions: {}, // Key: matchId -> { scoreHome: null, scoreAway: null, outcome: null }
   simResults: null,     // Aggregated simulation frequencies
-  baseSimResults: null  // Frequencies loaded from compiled data
+  baseSimResults: null, // Frequencies loaded from compiled data
+  isUnlocked: false,    // In-memory unlock state
+  unlockTime: null      // In-memory unlock timestamp
 };
 
 // Initialize application
@@ -157,8 +159,8 @@ function setupEventListeners() {
 
       if (enteredCode === expectedCode || enteredCode === "nexos2026" || enteredCode === "nexos2026master") {
         if (errorMsg) errorMsg.classList.add("hidden");
-        localStorage.setItem("nexos_sim_unlocked", "true");
-        localStorage.setItem("nexos_sim_unlock_time", Date.now().toString());
+        state.isUnlocked = true;
+        state.unlockTime = Date.now();
         const lockScreen = document.getElementById("lock-screen");
         if (lockScreen) {
           lockScreen.classList.add("hidden");
@@ -1644,17 +1646,17 @@ function startAccessTimerLoop() {
     }
 
     // A partir de las 6:00 PM: acceso controlado activo
-    const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
-    const unlockTimeStr = localStorage.getItem("nexos_sim_unlock_time");
+    const isUnlocked = state.isUnlocked;
+    const unlockTime = state.unlockTime;
 
-    if (isUnlocked && unlockTimeStr) {
-      const elapsed = Date.now() - Number(unlockTimeStr);
+    if (isUnlocked && unlockTime) {
+      const elapsed = Date.now() - unlockTime;
       const remaining = 24 * 60 * 60 * 1000 - elapsed;
 
       if (remaining <= 0) {
-        // Expiraron las 24 horas: bloquear sitio y borrar llaves
-        localStorage.removeItem("nexos_sim_unlocked");
-        localStorage.removeItem("nexos_sim_unlock_time");
+        // Expiraron las 24 horas: bloquear sitio y borrar llaves en memoria
+        state.isUnlocked = false;
+        state.unlockTime = null;
         if (lockScreen) lockScreen.classList.remove("hidden");
         if (timerContainer) timerContainer.classList.add("hidden");
       } else {
