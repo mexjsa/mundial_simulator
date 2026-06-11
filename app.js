@@ -32,6 +32,11 @@ window.addEventListener("DOMContentLoaded", () => {
   // Start access timer / lock control loop
   startAccessTimerLoop();
 
+  // Auto-refresh page every 2 minutes
+  setInterval(() => {
+    window.location.reload();
+  }, 120000);
+
   initData();
   setupEventListeners();
   renderFixtures();
