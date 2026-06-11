@@ -64,13 +64,22 @@ function initData() {
     team.rating = 1000 + 5.0 * team.qualify_prob + 20.0 * (team.prob_gold || 0);
   });
   
-  // Setup empty predictions map
+  // Setup empty predictions map, pre-filling played matches
   WORLD_CUP_DATA.fixtures.forEach(f => {
-    state.userPredictions[f.id] = {
-      scoreHome: null,
-      scoreAway: null,
-      outcome: null
-    };
+    if (f.id === 58546827) {
+      // México 2 - 0 Sudáfrica (June 11, 2026 - Opening Match)
+      state.userPredictions[f.id] = {
+        scoreHome: 2,
+        scoreAway: 0,
+        outcome: "L"
+      };
+    } else {
+      state.userPredictions[f.id] = {
+        scoreHome: null,
+        scoreAway: null,
+        outcome: null
+      };
+    }
   });
 }
 
