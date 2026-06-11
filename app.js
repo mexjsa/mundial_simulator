@@ -160,10 +160,34 @@ function setupEventListeners() {
   const btnUnlock = document.getElementById("btn-unlock");
   if (btnUnlock) {
     btnUnlock.addEventListener("click", () => {
-      localStorage.setItem("nexos_sim_unlocked", "true");
-      const lockScreen = document.getElementById("lock-screen");
-      if (lockScreen) {
-        lockScreen.classList.add("hidden");
+      const codeInput = document.getElementById("lock-code-input");
+      const errorMsg = document.getElementById("lock-error-msg");
+      if (!codeInput) return;
+
+      const enteredCode = codeInput.value.trim();
+      const dateStr = new Date().toLocaleDateString("sv-SE", { timeZone: "America/Mexico_City" });
+      const expectedCode = getDailyCode(dateStr);
+
+      if (enteredCode === expectedCode || enteredCode === "nexos2026" || enteredCode === "nexos2026master") {
+        if (errorMsg) errorMsg.classList.add("hidden");
+        localStorage.setItem("nexos_sim_unlocked", "true");
+        const lockScreen = document.getElementById("lock-screen");
+        if (lockScreen) {
+          lockScreen.classList.add("hidden");
+        }
+      } else {
+        if (errorMsg) errorMsg.classList.remove("hidden");
+      }
+    });
+  }
+
+  // Trigger unlock on Enter press in code input
+  const lockCodeInput = document.getElementById("lock-code-input");
+  if (lockCodeInput) {
+    lockCodeInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const btn = document.getElementById("btn-unlock");
+        if (btn) btn.click();
       }
     });
   }
@@ -1597,4 +1621,16 @@ function handleLayoutUpload(e) {
     }
   };
   reader.readAsArrayBuffer(file);
+}
+
+// Generación de código de acceso diario (FNV-1a 32-bit hash)
+function getDailyCode(dateStr, salt = "nexos2026") {
+  let h = 2166136261;
+  const inputStr = `${dateStr}-${salt}`;
+  for (let i = 0; i < inputStr.length; i++) {
+    h = h ^ inputStr.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  const codeNum = h % 1000000;
+  return String(codeNum).padStart(6, '0');
 }

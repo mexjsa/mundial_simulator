@@ -18,8 +18,14 @@
       <span class="lock-symbol">Σ</span>
       <h2>Simulador de resultados Nexos</h2>
       <p class="lock-subtitle">ACCESO EXCLUSIVO</p>
-      <p class="lock-desc">Para ingresar al simulador interactivo y realizar tus predicciones del Mundial 2026, solicitamos una modesta donación (a partir de $50.00 MXN) para apoyar este desarrollo estadístico. El acceso libre se habilitará automáticamente hoy a las 5:00 PM.</p>
+      <p class="lock-desc">Para ingresar al simulador interactivo y realizar tus predicciones del Mundial 2026, solicitamos una modesta donación (a partir de $50.00 MXN) para apoyar el desarrollo estadístico. Tras realizar tu donación, te proporcionaremos un código de acceso de 6 dígitos válido para hoy. El acceso libre se habilitará automáticamente hoy a las 5:00 PM.</p>
       
+      <div class="lock-input-group">
+        <label for="lock-code-input">Código de Acceso:</label>
+        <input type="text" id="lock-code-input" placeholder="000000" maxlength="20" class="lock-code-input">
+        <span id="lock-error-msg" class="lock-error-msg hidden">Código incorrecto. Inténtalo de nuevo.</span>
+      </div>
+
       <div class="lock-buttons">
         <a href="https://buymeacoffee.com/juansancheu" target="_blank" id="btn-donate" class="btn btn-primary">
           ☕ Donar y Apoyar ($50.00+)
