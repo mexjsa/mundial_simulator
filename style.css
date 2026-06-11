@@ -1551,3 +1551,48 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+/* WhatsApp Link Button Style */
+.btn-whatsapp {
+  background-color: #25d366 !important;
+  color: #ffffff !important;
+  border: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-whatsapp:hover {
+  background-color: #20ba5a !important;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+}
+
+/* Access Timer UI Badge */
+.access-timer-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 230, 118, 0.1);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-right: 0.5rem;
+  height: 38px; /* Match standard button height */
+  box-sizing: border-box;
+}
+
+.access-timer-container.hidden {
+  display: none !important;
+}
+
+.timer-value {
+  font-family: monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+

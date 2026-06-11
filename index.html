@@ -18,7 +18,7 @@
       <span class="lock-symbol">Σ</span>
       <h2>Simulador de resultados Nexos</h2>
       <p class="lock-subtitle">ACCESO EXCLUSIVO</p>
-      <p class="lock-desc">Para ingresar al simulador interactivo y realizar tus predicciones del Mundial 2026, solicitamos una modesta donación (a partir de $50.00 MXN) para apoyar el desarrollo estadístico. Tras realizar tu donación, te proporcionaremos un código de acceso de 6 dígitos válido para hoy. El acceso libre se habilitará automáticamente hoy a las 5:00 PM.</p>
+      <p class="lock-desc">Para ingresar al simulador interactivo y realizar tus predicciones del Mundial 2026, solicitamos una modesta donación (a partir de $50.00 MXN) para apoyar el desarrollo estadístico. El acceso controlado se activará a partir de las 6:00 PM. <br><br>Tras realizar tu donación, solicita tu código de acceso de 24 horas enviando tu comprobante por WhatsApp al teléfono <strong>5514803488</strong>.</p>
       
       <div class="lock-input-group">
         <label for="lock-code-input">Código de Acceso:</label>
@@ -29,6 +29,9 @@
       <div class="lock-buttons">
         <a href="https://buymeacoffee.com/juansancheu" target="_blank" id="btn-donate" class="btn btn-primary">
           ☕ Donar y Apoyar ($50.00+)
+        </a>
+        <a href="https://wa.me/525514803488?text=Hola,%20acabo%20de%20realizar%20mi%20donación%20para%20el%20Simulador%20del%20Mundial%202026.%20¿Me%20podrían%20proporcionar%20mi%20código%20de%20acceso?" target="_blank" id="btn-whatsapp" class="btn btn-whatsapp">
+          💬 Solicitar Código (WhatsApp)
         </a>
         <button id="btn-unlock" class="btn btn-secondary">
           🔓 Ingresar al Simulador
@@ -51,6 +54,13 @@
       
       <!-- Simulation Controls -->
       <div class="sim-controls">
+        <!-- Access Timer -->
+        <div id="access-timer-container" class="access-timer-container hidden">
+          <span class="timer-icon">🔑</span>
+          <span class="timer-label">Acceso restante:</span>
+          <span id="access-timer" class="timer-value">24:00:00</span>
+        </div>
+        
         <div class="control-group">
           <label for="sim-iterations">Iteraciones:</label>
           <select id="sim-iterations">

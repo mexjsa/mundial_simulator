@@ -27,30 +27,8 @@ let state = {
 
 // Initialize application
 window.addEventListener("DOMContentLoaded", () => {
-  // Check lock screen status
-  const now = new Date();
-  const deadline = new Date("2026-06-11T17:00:00-06:00");
-  const lockScreen = document.getElementById("lock-screen");
-  
-  if (now >= deadline) {
-    if (lockScreen) {
-      lockScreen.classList.add("hidden");
-    }
-  } else {
-    const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
-    if (isUnlocked && lockScreen) {
-      lockScreen.classList.add("hidden");
-    } else {
-      // Schedule automatic unlock exactly at 5:00 PM
-      const msUntilDeadline = deadline.getTime() - now.getTime();
-      setTimeout(() => {
-        const ls = document.getElementById("lock-screen");
-        if (ls) {
-          ls.classList.add("hidden");
-        }
-      }, msUntilDeadline);
-    }
-  }
+  // Start access timer / lock control loop
+  startAccessTimerLoop();
 
   initData();
   setupEventListeners();
@@ -171,10 +149,12 @@ function setupEventListeners() {
       if (enteredCode === expectedCode || enteredCode === "nexos2026" || enteredCode === "nexos2026master") {
         if (errorMsg) errorMsg.classList.add("hidden");
         localStorage.setItem("nexos_sim_unlocked", "true");
+        localStorage.setItem("nexos_sim_unlock_time", Date.now().toString());
         const lockScreen = document.getElementById("lock-screen");
         if (lockScreen) {
           lockScreen.classList.add("hidden");
         }
+        codeInput.value = "";
       } else {
         if (errorMsg) errorMsg.classList.remove("hidden");
       }
@@ -1633,4 +1613,66 @@ function getDailyCode(dateStr, salt = "nexos2026") {
   }
   const codeNum = h % 1000000;
   return String(codeNum).padStart(6, '0');
+}
+
+// Bucle periódico del contador de acceso y control de bloqueo (24 horas)
+function startAccessTimerLoop() {
+  const activationTime = new Date("2026-06-11T18:00:00-06:00");
+  const lockScreen = document.getElementById("lock-screen");
+  const timerContainer = document.getElementById("access-timer-container");
+  const timerVal = document.getElementById("access-timer");
+
+  function checkStatus() {
+    const now = new Date();
+    const isPastActivation = now >= activationTime;
+
+    if (!isPastActivation) {
+      // Antes de las 6:00 PM: acceso completamente libre
+      if (lockScreen) lockScreen.classList.add("hidden");
+      if (timerContainer) timerContainer.classList.add("hidden");
+      return;
+    }
+
+    // A partir de las 6:00 PM: acceso controlado activo
+    const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
+    const unlockTimeStr = localStorage.getItem("nexos_sim_unlock_time");
+
+    if (isUnlocked && unlockTimeStr) {
+      const elapsed = Date.now() - Number(unlockTimeStr);
+      const remaining = 24 * 60 * 60 * 1000 - elapsed;
+
+      if (remaining <= 0) {
+        // Expiraron las 24 horas: bloquear sitio y borrar llaves
+        localStorage.removeItem("nexos_sim_unlocked");
+        localStorage.removeItem("nexos_sim_unlock_time");
+        if (lockScreen) lockScreen.classList.remove("hidden");
+        if (timerContainer) timerContainer.classList.add("hidden");
+      } else {
+        // Acceso desbloqueado y vigente: ocultar bloqueo, mostrar contador
+        if (lockScreen) lockScreen.classList.add("hidden");
+        if (timerContainer) timerContainer.classList.remove("hidden");
+        
+        // Formatear contador en HH:MM:SS
+        const totalSecs = Math.floor(remaining / 1000);
+        const hrs = Math.floor(totalSecs / 3600);
+        const mins = Math.floor((totalSecs % 3600) / 60);
+        const secs = totalSecs % 60;
+        
+        if (timerVal) {
+          timerVal.textContent = 
+            String(hrs).padStart(2, '0') + ":" + 
+            String(mins).padStart(2, '0') + ":" + 
+            String(secs).padStart(2, '0');
+        }
+      }
+    } else {
+      // Bloqueado: mostrar pantalla de bloqueo y ocultar contador
+      if (lockScreen) lockScreen.classList.remove("hidden");
+      if (timerContainer) timerContainer.classList.add("hidden");
+    }
+  }
+
+  // Ejecución inicial y luego cada segundo
+  checkStatus();
+  setInterval(checkStatus, 1000);
 }
