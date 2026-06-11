@@ -160,13 +160,10 @@ function setupEventListeners() {
   const btnUnlock = document.getElementById("btn-unlock");
   if (btnUnlock) {
     btnUnlock.addEventListener("click", () => {
-      const confirmDonation = confirm("¿Confirmas haber realizado una donación de $50.00 MXN o más para ingresar al simulador?");
-      if (confirmDonation) {
-        localStorage.setItem("nexos_sim_unlocked", "true");
-        const lockScreen = document.getElementById("lock-screen");
-        if (lockScreen) {
-          lockScreen.classList.add("hidden");
-        }
+      localStorage.setItem("nexos_sim_unlocked", "true");
+      const lockScreen = document.getElementById("lock-screen");
+      if (lockScreen) {
+        lockScreen.classList.add("hidden");
       }
     });
   }
