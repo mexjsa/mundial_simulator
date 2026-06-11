@@ -28,10 +28,28 @@ let state = {
 // Initialize application
 window.addEventListener("DOMContentLoaded", () => {
   // Check lock screen status
-  const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
+  const now = new Date();
+  const deadline = new Date("2026-06-11T17:00:00-06:00");
   const lockScreen = document.getElementById("lock-screen");
-  if (isUnlocked && lockScreen) {
-    lockScreen.classList.add("hidden");
+  
+  if (now >= deadline) {
+    if (lockScreen) {
+      lockScreen.classList.add("hidden");
+    }
+  } else {
+    const isUnlocked = localStorage.getItem("nexos_sim_unlocked") === "true";
+    if (isUnlocked && lockScreen) {
+      lockScreen.classList.add("hidden");
+    } else {
+      // Schedule automatic unlock exactly at 5:00 PM
+      const msUntilDeadline = deadline.getTime() - now.getTime();
+      setTimeout(() => {
+        const ls = document.getElementById("lock-screen");
+        if (ls) {
+          ls.classList.add("hidden");
+        }
+      }, msUntilDeadline);
+    }
   }
 
   initData();
@@ -142,10 +160,13 @@ function setupEventListeners() {
   const btnUnlock = document.getElementById("btn-unlock");
   if (btnUnlock) {
     btnUnlock.addEventListener("click", () => {
-      localStorage.setItem("nexos_sim_unlocked", "true");
-      const lockScreen = document.getElementById("lock-screen");
-      if (lockScreen) {
-        lockScreen.classList.add("hidden");
+      const confirmDonation = confirm("¿Confirmas haber realizado una donación de $50.00 MXN o más para ingresar al simulador?");
+      if (confirmDonation) {
+        localStorage.setItem("nexos_sim_unlocked", "true");
+        const lockScreen = document.getElementById("lock-screen");
+        if (lockScreen) {
+          lockScreen.classList.add("hidden");
+        }
       }
     });
   }
