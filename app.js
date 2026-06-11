@@ -1634,7 +1634,7 @@ function getDailyCode(dateStr, salt = "nexos2026") {
 
 // Bucle periódico del contador de acceso y control de bloqueo (24 horas)
 function startAccessTimerLoop() {
-  const activationTime = new Date("2026-06-11T17:00:00-06:00");
+  const activationTime = new Date("2026-06-11T18:00:00-06:00");
   const lockScreen = document.getElementById("lock-screen");
   const timerContainer = document.getElementById("access-timer-container");
   const timerVal = document.getElementById("access-timer");
