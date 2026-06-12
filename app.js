@@ -87,6 +87,13 @@ function initData() {
         scoreAway: 1,
         outcome: "L"
       };
+    } else if (f.id === 58546833) {
+      // Canadá 1 - 1 Bosnia y Herzegovina (June 12, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
