@@ -80,6 +80,13 @@ function initData() {
         scoreAway: 0,
         outcome: "L"
       };
+    } else if (f.id === 58546828) {
+      // Corea del Sur 2 - 1 Rep. Checa (June 11, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 2,
+        scoreAway: 1,
+        outcome: "L"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
