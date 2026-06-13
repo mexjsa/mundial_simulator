@@ -94,6 +94,13 @@ function initData() {
         scoreAway: 1,
         outcome: "E"
       };
+    } else if (f.id === 58546845) {
+      // Estados Unidos 4 - 1 Paraguay (June 12, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 4,
+        scoreAway: 1,
+        outcome: "L"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
