@@ -101,6 +101,20 @@ function initData() {
         scoreAway: 1,
         outcome: "L"
       };
+    } else if (f.id === 58546834) {
+      // Catar 1 - 1 Suiza (June 13, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
+    } else if (f.id === 58546839) {
+      // Brasil 1 - 1 Marruecos (June 13, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
