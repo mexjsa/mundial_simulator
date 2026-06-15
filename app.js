@@ -115,6 +115,48 @@ function initData() {
         scoreAway: 1,
         outcome: "E"
       };
+    } else if (f.id === 58546840) {
+      // Haití 0 - 1 Escocia (June 13, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 0,
+        scoreAway: 1,
+        outcome: "V"
+      };
+    } else if (f.id === 58546846) {
+      // Australia 2 - 0 Turquía (June 13, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 2,
+        scoreAway: 0,
+        outcome: "L"
+      };
+    } else if (f.id === 58546851) {
+      // Alemania 7 - 1 Curazao (June 14, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 7,
+        scoreAway: 1,
+        outcome: "L"
+      };
+    } else if (f.id === 58546852) {
+      // Costa de Marfil 1 - 0 Ecuador (June 14, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 0,
+        outcome: "L"
+      };
+    } else if (f.id === 58546857) {
+      // Países Bajos 2 - 2 Japón (June 14, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 2,
+        scoreAway: 2,
+        outcome: "E"
+      };
+    } else if (f.id === 58546858) {
+      // Suecia 5 - 1 Túnez (June 14, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 5,
+        scoreAway: 1,
+        outcome: "L"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
