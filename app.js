@@ -157,6 +157,27 @@ function initData() {
         scoreAway: 1,
         outcome: "L"
       };
+    } else if (f.id === 58546869) {
+      // España 0 - 0 Cabo Verde (June 15, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 0,
+        scoreAway: 0,
+        outcome: "E"
+      };
+    } else if (f.id === 58546863) {
+      // Bélgica 1 - 1 Egipto (June 15, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
+    } else if (f.id === 58546870) {
+      // Arabia Saudita 1 - 1 Uruguay (June 15, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
