@@ -178,6 +178,13 @@ function initData() {
         scoreAway: 1,
         outcome: "E"
       };
+    } else if (f.id === 58546864) {
+      // Irán 2 - 2 Nueva Zelanda (June 15, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 2,
+        scoreAway: 2,
+        outcome: "E"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
