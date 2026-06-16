@@ -185,6 +185,20 @@ function initData() {
         scoreAway: 2,
         outcome: "E"
       };
+    } else if (f.id === 58546875) {
+      // Francia 3 - 1 Senegal (June 16, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 3,
+        scoreAway: 1,
+        outcome: "L"
+      };
+    } else if (f.id === 58546876) {
+      // Irak 1 - 2 Noruega (June 16, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 2,
+        outcome: "V"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
