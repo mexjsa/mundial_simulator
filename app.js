@@ -193,10 +193,10 @@ function initData() {
         outcome: "L"
       };
     } else if (f.id === 58546876) {
-      // Irak 1 - 2 Noruega (June 16, 2026)
+      // Irak 1 - 4 Noruega (June 16, 2026)
       state.userPredictions[f.id] = {
         scoreHome: 1,
-        scoreAway: 2,
+        scoreAway: 4,
         outcome: "V"
       };
     } else if (f.id === 58546881) {
@@ -204,6 +204,13 @@ function initData() {
       state.userPredictions[f.id] = {
         scoreHome: 3,
         scoreAway: 0,
+        outcome: "L"
+      };
+    } else if (f.id === 58546882) {
+      // Austria 3 - 1 Jordania (June 16, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 3,
+        scoreAway: 1,
         outcome: "L"
       };
     } else {
