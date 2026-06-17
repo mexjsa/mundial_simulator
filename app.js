@@ -199,6 +199,13 @@ function initData() {
         scoreAway: 2,
         outcome: "V"
       };
+    } else if (f.id === 58546881) {
+      // Argentina 3 - 0 Argelia (June 16, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 3,
+        scoreAway: 0,
+        outcome: "L"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
