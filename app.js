@@ -213,6 +213,13 @@ function initData() {
         scoreAway: 1,
         outcome: "L"
       };
+    } else if (f.id === 58546887) {
+      // Portugal 1 - 1 Congo DR (June 17, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 1,
+        outcome: "E"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
