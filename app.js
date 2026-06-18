@@ -220,6 +220,27 @@ function initData() {
         scoreAway: 1,
         outcome: "E"
       };
+    } else if (f.id === 58546888) {
+      // Uzbekistan 1 - 3 Colombia (June 17, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 3,
+        outcome: "V"
+      };
+    } else if (f.id === 58546893) {
+      // England 4 - 2 Croatia (June 17, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 4,
+        scoreAway: 2,
+        outcome: "L"
+      };
+    } else if (f.id === 58546894) {
+      // Ghana 1 - 0 Panama (June 17, 2026)
+      state.userPredictions[f.id] = {
+        scoreHome: 1,
+        scoreAway: 0,
+        outcome: "L"
+      };
     } else {
       state.userPredictions[f.id] = {
         scoreHome: null,
