@@ -1,4 +1,3 @@
-// Data compiled from JSA Simulator 50,000 simulations
 const WORLD_CUP_DATA = {
   "fixtures": [
     {
@@ -7,15 +6,18 @@ const WORLD_CUP_DATA = {
       "group": "A",
       "home_en": "Mexico",
       "away_en": "South Africa",
-      "home_es": "M\u00e9xico",
-      "away_es": "Sud\u00e1frica",
+      "home_es": "México",
+      "away_es": "Sudáfrica",
       "home_fifa": "MEX",
       "away_fifa": "RSA",
       "date": "2026-06-11",
       "kickoff": "2026-06-11T19:00:00Z",
       "win_prob": 0.6781004672999953,
       "draw_prob": 0.1872253333174913,
-      "loss_prob": 0.1346741993825133
+      "loss_prob": 0.1346741993825133,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "id": 58546828,
@@ -31,7 +33,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-12T02:00:00Z",
       "win_prob": 0.3151139005048859,
       "draw_prob": 0.2548087441232786,
-      "loss_prob": 0.4300773553718356
+      "loss_prob": 0.4300773553718356,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "id": 58546833,
@@ -39,7 +44,7 @@ const WORLD_CUP_DATA = {
       "group": "B",
       "home_en": "Canada",
       "away_en": "BiH",
-      "home_es": "Canad\u00e1",
+      "home_es": "Canadá",
       "away_es": "Bosnia y Herzegovina",
       "home_fifa": "CAN",
       "away_fifa": "BIH",
@@ -47,7 +52,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-12T19:00:00Z",
       "win_prob": 0.4881617780327765,
       "draw_prob": 0.2448818665565149,
-      "loss_prob": 0.2669563554107085
+      "loss_prob": 0.2669563554107085,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546845,
@@ -63,7 +71,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-13T01:00:00Z",
       "win_prob": 0.5291759793958573,
       "draw_prob": 0.2352099372823285,
-      "loss_prob": 0.2356140833218142
+      "loss_prob": 0.2356140833218142,
+      "status": "FINISHED",
+      "home_score": 4,
+      "away_score": 1
     },
     {
       "id": 58546834,
@@ -79,7 +90,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-13T19:00:00Z",
       "win_prob": 0.1261967962600614,
       "draw_prob": 0.181893783599706,
-      "loss_prob": 0.6919094201402326
+      "loss_prob": 0.6919094201402326,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546839,
@@ -95,7 +109,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-13T22:00:00Z",
       "win_prob": 0.5618767923131693,
       "draw_prob": 0.2262585530976034,
-      "loss_prob": 0.2118646545892273
+      "loss_prob": 0.2118646545892273,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546840,
@@ -103,7 +120,7 @@ const WORLD_CUP_DATA = {
       "group": "C",
       "home_en": "Haiti",
       "away_en": "Scotland",
-      "home_es": "Hait\u00ed",
+      "home_es": "Haití",
       "away_es": "Escocia",
       "home_fifa": "HAI",
       "away_fifa": "SCO",
@@ -111,30 +128,36 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-14T01:00:00Z",
       "win_prob": 0.1208165221166722,
       "draw_prob": 0.1783825540878702,
-      "loss_prob": 0.7008009237954576
+      "loss_prob": 0.7008009237954576,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "id": 58546846,
       "round": 1,
       "group": "D",
       "home_en": "Australia",
-      "away_en": "T\u00fcrkiye",
+      "away_en": "Türkiye",
       "home_es": "Australia",
-      "away_es": "Turqu\u00eda",
+      "away_es": "Turquía",
       "home_fifa": "AUS",
       "away_fifa": "TUR",
       "date": "2026-06-13",
       "kickoff": "2026-06-14T04:00:00Z",
       "win_prob": 0.1793290581760272,
       "draw_prob": 0.2117343945193097,
-      "loss_prob": 0.6089365473046632
+      "loss_prob": 0.6089365473046632,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "id": 58546851,
       "round": 1,
       "group": "E",
       "home_en": "Germany",
-      "away_en": "Cura\u00e7ao",
+      "away_en": "Curaçao",
       "home_es": "Alemania",
       "away_es": "Curazao",
       "home_fifa": "GER",
@@ -143,13 +166,16 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-14T17:00:00Z",
       "win_prob": 0.906581962924808,
       "draw_prob": 0.06940274792623952,
-      "loss_prob": 0.02401528914895248
+      "loss_prob": 0.02401528914895248,
+      "status": "FINISHED",
+      "home_score": 7,
+      "away_score": 1
     },
     {
       "id": 58546852,
       "round": 1,
       "group": "E",
-      "home_en": "C\u00f4te d'Ivoire",
+      "home_en": "Côte d'Ivoire",
       "away_en": "Ecuador",
       "home_es": "Costa de Marfil",
       "away_es": "Ecuador",
@@ -159,7 +185,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-14T23:00:00Z",
       "win_prob": 0.2553597147040367,
       "draw_prob": 0.2415911746627512,
-      "loss_prob": 0.503049110633212
+      "loss_prob": 0.503049110633212,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "id": 58546857,
@@ -167,15 +196,18 @@ const WORLD_CUP_DATA = {
       "group": "F",
       "home_en": "Netherlands",
       "away_en": "Japan",
-      "home_es": "Pa\u00edses Bajos",
-      "away_es": "Jap\u00f3n",
+      "home_es": "Países Bajos",
+      "away_es": "Japón",
       "home_fifa": "NED",
       "away_fifa": "JPN",
       "date": "2026-06-14",
       "kickoff": "2026-06-14T20:00:00Z",
       "win_prob": 0.4570187050733741,
       "draw_prob": 0.2508356784442498,
-      "loss_prob": 0.2921456164823762
+      "loss_prob": 0.2921456164823762,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "id": 58546858,
@@ -184,14 +216,17 @@ const WORLD_CUP_DATA = {
       "home_en": "Sweden",
       "away_en": "Tunisia",
       "home_es": "Suecia",
-      "away_es": "T\u00fanez",
+      "away_es": "Túnez",
       "home_fifa": "SWE",
       "away_fifa": "TUN",
       "date": "2026-06-14",
       "kickoff": "2026-06-15T02:00:00Z",
       "win_prob": 0.5833131969693741,
       "draw_prob": 0.2198698376090778,
-      "loss_prob": 0.1968169654215482
+      "loss_prob": 0.1968169654215482,
+      "status": "FINISHED",
+      "home_score": 5,
+      "away_score": 1
     },
     {
       "id": 58546863,
@@ -199,7 +234,7 @@ const WORLD_CUP_DATA = {
       "group": "G",
       "home_en": "Belgium",
       "away_en": "Egypt",
-      "home_es": "B\u00e9lgica",
+      "home_es": "Bélgica",
       "away_es": "Egipto",
       "home_fifa": "BEL",
       "away_fifa": "EGY",
@@ -207,7 +242,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-15T19:00:00Z",
       "win_prob": 0.5865962464941852,
       "draw_prob": 0.2188571923963105,
-      "loss_prob": 0.1945465611095044
+      "loss_prob": 0.1945465611095044,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546864,
@@ -215,7 +253,7 @@ const WORLD_CUP_DATA = {
       "group": "G",
       "home_en": "Iran",
       "away_en": "New Zealand",
-      "home_es": "Ir\u00e1n",
+      "home_es": "Irán",
       "away_es": "Nueva Zelanda",
       "home_fifa": "IRN",
       "away_fifa": "NZL",
@@ -223,7 +261,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-16T01:00:00Z",
       "win_prob": 0.4683684669804131,
       "draw_prob": 0.2488219047209627,
-      "loss_prob": 0.2828096282986243
+      "loss_prob": 0.2828096282986243,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "id": 58546869,
@@ -231,7 +272,7 @@ const WORLD_CUP_DATA = {
       "group": "H",
       "home_en": "Spain",
       "away_en": "Cabo Verde",
-      "home_es": "Espa\u00f1a",
+      "home_es": "España",
       "away_es": "Cabo Verde",
       "home_fifa": "ESP",
       "away_fifa": "CPV",
@@ -239,7 +280,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-15T16:00:00Z",
       "win_prob": 0.9173192581703236,
       "draw_prob": 0.06234209335468428,
-      "loss_prob": 0.0203386484749923
+      "loss_prob": 0.0203386484749923,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546870,
@@ -255,7 +299,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-15T22:00:00Z",
       "win_prob": 0.1354458016470782,
       "draw_prob": 0.1876988509347888,
-      "loss_prob": 0.676855347418133
+      "loss_prob": 0.676855347418133,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546875,
@@ -271,7 +318,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-16T19:00:00Z",
       "win_prob": 0.6868644042387924,
       "draw_prob": 0.1838586999593603,
-      "loss_prob": 0.1292768958018473
+      "loss_prob": 0.1292768958018473,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "id": 58546876,
@@ -287,7 +337,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-16T22:00:00Z",
       "win_prob": 0.07117256510414412,
       "draw_prob": 0.1403801303810551,
-      "loss_prob": 0.7884473045148007
+      "loss_prob": 0.7884473045148007,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 4
     },
     {
       "id": 58546881,
@@ -303,7 +356,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-17T01:00:00Z",
       "win_prob": 0.759605992366081,
       "draw_prob": 0.1535549062362012,
-      "loss_prob": 0.08683910139771776
+      "loss_prob": 0.08683910139771776,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 0
     },
     {
       "id": 58546882,
@@ -319,7 +375,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-17T04:00:00Z",
       "win_prob": 0.7318446322356517,
       "draw_prob": 0.1656315879762596,
-      "loss_prob": 0.1025237797880887
+      "loss_prob": 0.1025237797880887,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "id": 58546887,
@@ -335,7 +394,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-17T17:00:00Z",
       "win_prob": 0.8388976624772768,
       "draw_prob": 0.1114643325675453,
-      "loss_prob": 0.04963800495517787
+      "loss_prob": 0.04963800495517787,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546888,
@@ -343,7 +405,7 @@ const WORLD_CUP_DATA = {
       "group": "K",
       "home_en": "Uzbekistan",
       "away_en": "Colombia",
-      "home_es": "Uzbekist\u00e1n",
+      "home_es": "Uzbekistán",
       "away_es": "Colombia",
       "home_fifa": "UZB",
       "away_fifa": "COL",
@@ -351,7 +413,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-18T02:00:00Z",
       "win_prob": 0.08243690211574153,
       "draw_prob": 0.1499456145247847,
-      "loss_prob": 0.7676174833594738
+      "loss_prob": 0.7676174833594738,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "id": 58546893,
@@ -367,7 +432,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-17T20:00:00Z",
       "win_prob": 0.5222773077502576,
       "draw_prob": 0.2369654994600166,
-      "loss_prob": 0.2407571927897257
+      "loss_prob": 0.2407571927897257,
+      "status": "FINISHED",
+      "home_score": 4,
+      "away_score": 2
     },
     {
       "id": 58546894,
@@ -376,14 +444,17 @@ const WORLD_CUP_DATA = {
       "home_en": "Ghana",
       "away_en": "Panama",
       "home_es": "Ghana",
-      "away_es": "Panam\u00e1",
+      "away_es": "Panamá",
       "home_fifa": "GHA",
       "away_fifa": "PAN",
       "date": "2026-06-17",
       "kickoff": "2026-06-17T23:00:00Z",
       "win_prob": 0.5291759793958573,
       "draw_prob": 0.2352099372823285,
-      "loss_prob": 0.2356140833218142
+      "loss_prob": 0.2356140833218142,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "id": 58546829,
@@ -392,14 +463,17 @@ const WORLD_CUP_DATA = {
       "home_en": "Czechia",
       "away_en": "South Africa",
       "home_es": "Rep. Checa",
-      "away_es": "Sud\u00e1frica",
+      "away_es": "Sudáfrica",
       "home_fifa": "CZE",
       "away_fifa": "RSA",
       "date": "2026-06-18",
       "kickoff": "2026-06-18T16:00:00Z",
       "win_prob": 0.5545562123950203,
       "draw_prob": 0.2283490247792674,
-      "loss_prob": 0.2170947628257123
+      "loss_prob": 0.2170947628257123,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546830,
@@ -407,7 +481,7 @@ const WORLD_CUP_DATA = {
       "group": "A",
       "home_en": "Mexico",
       "away_en": "South Korea",
-      "home_es": "M\u00e9xico",
+      "home_es": "México",
       "away_es": "Corea del Sur",
       "home_fifa": "MEX",
       "away_fifa": "KOR",
@@ -415,7 +489,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-19T01:00:00Z",
       "win_prob": 0.5576814078592506,
       "draw_prob": 0.2274626091940695,
-      "loss_prob": 0.2148559829466798
+      "loss_prob": 0.2148559829466798,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "id": 58546835,
@@ -431,7 +508,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-18T19:00:00Z",
       "win_prob": 0.5493858453846777,
       "draw_prob": 0.2297960313535208,
-      "loss_prob": 0.2208181232618015
+      "loss_prob": 0.2208181232618015,
+      "status": "FINISHED",
+      "home_score": 4,
+      "away_score": 1
     },
     {
       "id": 58546836,
@@ -439,7 +519,7 @@ const WORLD_CUP_DATA = {
       "group": "B",
       "home_en": "Canada",
       "away_en": "Qatar",
-      "home_es": "Canad\u00e1",
+      "home_es": "Canadá",
       "away_es": "Catar",
       "home_fifa": "CAN",
       "away_fifa": "QAT",
@@ -447,7 +527,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-18T22:00:00Z",
       "win_prob": 0.6379656639542957,
       "draw_prob": 0.2018932780343003,
-      "loss_prob": 0.160141058011404
+      "loss_prob": 0.160141058011404,
+      "status": "FINISHED",
+      "home_score": 6,
+      "away_score": 0
     },
     {
       "id": 58546841,
@@ -463,7 +546,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-19T22:00:00Z",
       "win_prob": 0.2466139167523927,
       "draw_prob": 0.2388847393001211,
-      "loss_prob": 0.5145013439474863
+      "loss_prob": 0.5145013439474863,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "id": 58546842,
@@ -472,22 +558,25 @@ const WORLD_CUP_DATA = {
       "home_en": "Brazil",
       "away_en": "Haiti",
       "home_es": "Brasil",
-      "away_es": "Hait\u00ed",
+      "away_es": "Haití",
       "home_fifa": "BRA",
       "away_fifa": "HAI",
       "date": "2026-06-19",
       "kickoff": "2026-06-20T00:30:00Z",
       "win_prob": 0.9334941293164134,
       "draw_prob": 0.05122946421035286,
-      "loss_prob": 0.01527640647323377
+      "loss_prob": 0.01527640647323377,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 0
     },
     {
       "id": 58546847,
       "round": 2,
       "group": "D",
-      "home_en": "T\u00fcrkiye",
+      "home_en": "Türkiye",
       "away_en": "Paraguay",
-      "home_es": "Turqu\u00eda",
+      "home_es": "Turquía",
       "away_es": "Paraguay",
       "home_fifa": "TUR",
       "away_fifa": "PAR",
@@ -495,7 +584,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-20T03:00:00Z",
       "win_prob": 0.5135373628332952,
       "draw_prob": 0.239118151964165,
-      "loss_prob": 0.2473444852025398
+      "loss_prob": 0.2473444852025398,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "id": 58546848,
@@ -511,14 +603,17 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-19T19:00:00Z",
       "win_prob": 0.6238797893599227,
       "draw_prob": 0.2067498077090898,
-      "loss_prob": 0.1693704029309875
+      "loss_prob": 0.1693704029309875,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "id": 58546853,
       "round": 2,
       "group": "E",
       "home_en": "Ecuador",
-      "away_en": "Cura\u00e7ao",
+      "away_en": "Curaçao",
       "home_es": "Ecuador",
       "away_es": "Curazao",
       "home_fifa": "ECU",
@@ -527,14 +622,17 @@ const WORLD_CUP_DATA = {
       "kickoff": null,
       "win_prob": 0.7783420044950948,
       "draw_prob": 0.1450233649925722,
-      "loss_prob": 0.07663463051233305
+      "loss_prob": 0.07663463051233305,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546854,
       "round": 2,
       "group": "E",
       "home_en": "Germany",
-      "away_en": "C\u00f4te d'Ivoire",
+      "away_en": "Côte d'Ivoire",
       "home_es": "Alemania",
       "away_es": "Costa de Marfil",
       "home_fifa": "GER",
@@ -543,7 +641,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-20T20:00:00Z",
       "win_prob": 0.6681886805129632,
       "draw_prob": 0.1909618938268619,
-      "loss_prob": 0.1408494256601749
+      "loss_prob": 0.1408494256601749,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "id": 58546859,
@@ -551,15 +652,18 @@ const WORLD_CUP_DATA = {
       "group": "F",
       "home_en": "Tunisia",
       "away_en": "Japan",
-      "home_es": "T\u00fanez",
-      "away_es": "Jap\u00f3n",
+      "home_es": "Túnez",
+      "away_es": "Japón",
       "home_fifa": "TUN",
       "away_fifa": "JPN",
       "date": "2026-06-20",
       "kickoff": "2026-06-21T04:00:00Z",
       "win_prob": 0.1547452099396659,
       "draw_prob": 0.1989447256132321,
-      "loss_prob": 0.6463100644471019
+      "loss_prob": 0.6463100644471019,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 4
     },
     {
       "id": 58546860,
@@ -567,7 +671,7 @@ const WORLD_CUP_DATA = {
       "group": "F",
       "home_en": "Netherlands",
       "away_en": "Sweden",
-      "home_es": "Pa\u00edses Bajos",
+      "home_es": "Países Bajos",
       "away_es": "Suecia",
       "home_fifa": "NED",
       "away_fifa": "SWE",
@@ -575,7 +679,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-20T17:00:00Z",
       "win_prob": 0.521299038055942,
       "draw_prob": 0.237210469784214,
-      "loss_prob": 0.241490492159844
+      "loss_prob": 0.241490492159844,
+      "status": "FINISHED",
+      "home_score": 5,
+      "away_score": 1
     },
     {
       "id": 58546865,
@@ -591,7 +698,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-22T01:00:00Z",
       "win_prob": 0.1960605369251379,
       "draw_prob": 0.2195338839400252,
-      "loss_prob": 0.5844055791348369
+      "loss_prob": 0.5844055791348369,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "id": 58546866,
@@ -599,15 +709,18 @@ const WORLD_CUP_DATA = {
       "group": "G",
       "home_en": "Belgium",
       "away_en": "Iran",
-      "home_es": "B\u00e9lgica",
-      "away_es": "Ir\u00e1n",
+      "home_es": "Bélgica",
+      "away_es": "Irán",
       "home_fifa": "BEL",
       "away_fifa": "IRN",
       "date": "2026-06-21",
       "kickoff": "2026-06-21T19:00:00Z",
       "win_prob": 0.6944418004016898,
       "draw_prob": 0.1809000345375326,
-      "loss_prob": 0.1246581650607775
+      "loss_prob": 0.1246581650607775,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546871,
@@ -623,7 +736,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-21T22:00:00Z",
       "win_prob": 0.676855347418133,
       "draw_prob": 0.1876988509347888,
-      "loss_prob": 0.1354458016470782
+      "loss_prob": 0.1354458016470782,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 2
     },
     {
       "id": 58546872,
@@ -631,7 +747,7 @@ const WORLD_CUP_DATA = {
       "group": "H",
       "home_en": "Spain",
       "away_en": "Saudi Arabia",
-      "home_es": "Espa\u00f1a",
+      "home_es": "España",
       "away_es": "Arabia Saudita",
       "home_fifa": "ESP",
       "away_fifa": "KSA",
@@ -639,7 +755,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-21T16:00:00Z",
       "win_prob": 0.9173192581703236,
       "draw_prob": 0.06234209335468428,
-      "loss_prob": 0.0203386484749923
+      "loss_prob": 0.0203386484749923,
+      "status": "FINISHED",
+      "home_score": 4,
+      "away_score": 0
     },
     {
       "id": 58546877,
@@ -655,7 +774,10 @@ const WORLD_CUP_DATA = {
       "kickoff": null,
       "win_prob": 0.4826878273853836,
       "draw_prob": 0.2460231786264719,
-      "loss_prob": 0.2712889939881445
+      "loss_prob": 0.2712889939881445,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 2
     },
     {
       "id": 58546878,
@@ -671,7 +793,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-22T21:00:00Z",
       "win_prob": 0.929168766934284,
       "draw_prob": 0.05425843222497489,
-      "loss_prob": 0.01657280084074111
+      "loss_prob": 0.01657280084074111,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 0
     },
     {
       "id": 58546883,
@@ -687,7 +812,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-23T03:00:00Z",
       "win_prob": 0.1632207921161686,
       "draw_prob": 0.2035397326861509,
-      "loss_prob": 0.6332394751976805
+      "loss_prob": 0.6332394751976805,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 2
     },
     {
       "id": 58546884,
@@ -703,7 +831,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-22T17:00:00Z",
       "win_prob": 0.669421457228874,
       "draw_prob": 0.1905012493694317,
-      "loss_prob": 0.1400772934016944
+      "loss_prob": 0.1400772934016944,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0
     },
     {
       "id": 58546889,
@@ -719,7 +850,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-24T02:00:00Z",
       "win_prob": 0.7292272721052342,
       "draw_prob": 0.1667367532250192,
-      "loss_prob": 0.1040359746697466
+      "loss_prob": 0.1040359746697466,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "id": 58546890,
@@ -728,14 +862,17 @@ const WORLD_CUP_DATA = {
       "home_en": "Portugal",
       "away_en": "Uzbekistan",
       "home_es": "Portugal",
-      "away_es": "Uzbekist\u00e1n",
+      "away_es": "Uzbekistán",
       "home_fifa": "POR",
       "away_fifa": "UZB",
       "date": "2026-06-23",
       "kickoff": "2026-06-23T17:00:00Z",
       "win_prob": 0.8841869588951967,
       "draw_prob": 0.0836202337194116,
-      "loss_prob": 0.03219280738539163
+      "loss_prob": 0.03219280738539163,
+      "status": "FINISHED",
+      "home_score": 5,
+      "away_score": 0
     },
     {
       "id": 58546895,
@@ -743,7 +880,7 @@ const WORLD_CUP_DATA = {
       "group": "L",
       "home_en": "Panama",
       "away_en": "Croatia",
-      "home_es": "Panam\u00e1",
+      "home_es": "Panamá",
       "away_es": "Croacia",
       "home_fifa": "PAN",
       "away_fifa": "CRO",
@@ -751,7 +888,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-23T23:00:00Z",
       "win_prob": 0.08463291492424156,
       "draw_prob": 0.1517590789281364,
-      "loss_prob": 0.7636080061476221
+      "loss_prob": 0.7636080061476221,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "id": 58546896,
@@ -767,7 +907,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-23T20:00:00Z",
       "win_prob": 0.759605992366081,
       "draw_prob": 0.1535549062362012,
-      "loss_prob": 0.08683910139771776
+      "loss_prob": 0.08683910139771776,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546831,
@@ -776,7 +919,7 @@ const WORLD_CUP_DATA = {
       "home_en": "Czechia",
       "away_en": "Mexico",
       "home_es": "Rep. Checa",
-      "away_es": "M\u00e9xico",
+      "away_es": "México",
       "home_fifa": "CZE",
       "away_fifa": "MEX",
       "date": "2026-06-24",
@@ -791,7 +934,7 @@ const WORLD_CUP_DATA = {
       "group": "A",
       "home_en": "South Africa",
       "away_en": "South Korea",
-      "home_es": "Sud\u00e1frica",
+      "home_es": "Sudáfrica",
       "away_es": "Corea del Sur",
       "home_fifa": "RSA",
       "away_fifa": "KOR",
@@ -808,14 +951,17 @@ const WORLD_CUP_DATA = {
       "home_en": "Switzerland",
       "away_en": "Canada",
       "home_es": "Suiza",
-      "away_es": "Canad\u00e1",
+      "away_es": "Canadá",
       "home_fifa": "SUI",
       "away_fifa": "CAN",
       "date": "2026-06-24",
       "kickoff": "2026-06-24T19:00:00Z",
       "win_prob": 0.4259857332560772,
       "draw_prob": 0.2553038935377937,
-      "loss_prob": 0.318710373206129
+      "loss_prob": 0.318710373206129,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "id": 58546838,
@@ -831,7 +977,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-24T19:00:00Z",
       "win_prob": 0.5145013439474863,
       "draw_prob": 0.2388847393001211,
-      "loss_prob": 0.2466139167523927
+      "loss_prob": 0.2466139167523927,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "id": 58546843,
@@ -847,7 +996,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-24T22:00:00Z",
       "win_prob": 0.1192821092232764,
       "draw_prob": 0.1773622634157739,
-      "loss_prob": 0.7033556273609497
+      "loss_prob": 0.7033556273609497,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 3
     },
     {
       "id": 58546844,
@@ -856,22 +1008,25 @@ const WORLD_CUP_DATA = {
       "home_en": "Morocco",
       "away_en": "Haiti",
       "home_es": "Marruecos",
-      "away_es": "Hait\u00ed",
+      "away_es": "Haití",
       "home_fifa": "MAR",
       "away_fifa": "HAI",
       "date": "2026-06-24",
       "kickoff": "2026-06-24T22:00:00Z",
       "win_prob": 0.8125924814860013,
       "draw_prob": 0.1269885193458809,
-      "loss_prob": 0.0604189991681179
+      "loss_prob": 0.0604189991681179,
+      "status": "FINISHED",
+      "home_score": 4,
+      "away_score": 2
     },
     {
       "id": 58546849,
       "round": 3,
       "group": "D",
-      "home_en": "T\u00fcrkiye",
+      "home_en": "Türkiye",
       "away_en": "USA",
-      "home_es": "Turqu\u00eda",
+      "home_es": "Turquía",
       "away_es": "Estados Unidos",
       "home_fifa": "TUR",
       "away_fifa": "USA",
@@ -917,8 +1072,8 @@ const WORLD_CUP_DATA = {
       "id": 58546856,
       "round": 3,
       "group": "E",
-      "home_en": "Cura\u00e7ao",
-      "away_en": "C\u00f4te d'Ivoire",
+      "home_en": "Curaçao",
+      "away_en": "Côte d'Ivoire",
       "home_es": "Curazao",
       "away_es": "Costa de Marfil",
       "home_fifa": "CUW",
@@ -935,8 +1090,8 @@ const WORLD_CUP_DATA = {
       "group": "F",
       "home_en": "Tunisia",
       "away_en": "Netherlands",
-      "home_es": "T\u00fanez",
-      "away_es": "Pa\u00edses Bajos",
+      "home_es": "Túnez",
+      "away_es": "Países Bajos",
       "home_fifa": "TUN",
       "away_fifa": "NED",
       "date": "2026-06-25",
@@ -951,7 +1106,7 @@ const WORLD_CUP_DATA = {
       "group": "F",
       "home_en": "Japan",
       "away_en": "Sweden",
-      "home_es": "Jap\u00f3n",
+      "home_es": "Japón",
       "away_es": "Suecia",
       "home_fifa": "JPN",
       "away_fifa": "SWE",
@@ -968,7 +1123,7 @@ const WORLD_CUP_DATA = {
       "home_en": "New Zealand",
       "away_en": "Belgium",
       "home_es": "Nueva Zelanda",
-      "away_es": "B\u00e9lgica",
+      "away_es": "Bélgica",
       "home_fifa": "NZL",
       "away_fifa": "BEL",
       "date": "2026-06-26",
@@ -984,7 +1139,7 @@ const WORLD_CUP_DATA = {
       "home_en": "Egypt",
       "away_en": "Iran",
       "home_es": "Egipto",
-      "away_es": "Ir\u00e1n",
+      "away_es": "Irán",
       "home_fifa": "EGY",
       "away_fifa": "IRN",
       "date": "2026-06-26",
@@ -1000,7 +1155,7 @@ const WORLD_CUP_DATA = {
       "home_en": "Uruguay",
       "away_en": "Spain",
       "home_es": "Uruguay",
-      "away_es": "Espa\u00f1a",
+      "away_es": "España",
       "home_fifa": "URU",
       "away_fifa": "ESP",
       "date": "2026-06-26",
@@ -1112,7 +1267,7 @@ const WORLD_CUP_DATA = {
       "home_en": "Congo DR",
       "away_en": "Uzbekistan",
       "home_es": "Rep. del Congo",
-      "away_es": "Uzbekist\u00e1n",
+      "away_es": "Uzbekistán",
       "home_fifa": "COD",
       "away_fifa": "UZB",
       "date": "2026-06-27",
@@ -1127,7 +1282,7 @@ const WORLD_CUP_DATA = {
       "group": "L",
       "home_en": "Panama",
       "away_en": "England",
-      "home_es": "Panam\u00e1",
+      "home_es": "Panamá",
       "away_es": "Inglaterra",
       "home_fifa": "PAN",
       "away_fifa": "ENG",
@@ -1237,7 +1392,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Tunisia",
-      "team_es": "T\u00fanez",
+      "team_es": "Túnez",
       "fifa": "TUN",
       "group": "F",
       "xPts": 2.33,
@@ -1256,8 +1411,8 @@ const WORLD_CUP_DATA = {
       "prob_gold": 0.05
     },
     {
-      "team_en": "T\u00fcrkiye",
-      "team_es": "Turqu\u00eda",
+      "team_en": "Türkiye",
+      "team_es": "Turquía",
       "fifa": "TUR",
       "group": "D",
       "xPts": 4.94,
@@ -1277,7 +1432,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "group": "F",
       "xPts": 4.67,
@@ -1297,7 +1452,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Canada",
-      "team_es": "Canad\u00e1",
+      "team_es": "Canadá",
       "fifa": "CAN",
       "group": "B",
       "xPts": 4.86,
@@ -1337,7 +1492,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Haiti",
-      "team_es": "Hait\u00ed",
+      "team_es": "Haití",
       "fifa": "HAI",
       "group": "C",
       "xPts": 1.35,
@@ -1417,7 +1572,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Spain",
-      "team_es": "Espa\u00f1a",
+      "team_es": "España",
       "fifa": "ESP",
       "group": "H",
       "xPts": 7.34,
@@ -1477,7 +1632,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Mexico",
-      "team_es": "M\u00e9xico",
+      "team_es": "México",
       "fifa": "MEX",
       "group": "A",
       "xPts": 5.5,
@@ -1496,7 +1651,7 @@ const WORLD_CUP_DATA = {
       "prob_gold": 1.21
     },
     {
-      "team_en": "Cura\u00e7ao",
+      "team_en": "Curaçao",
       "team_es": "Curazao",
       "fifa": "CUW",
       "group": "E",
@@ -1617,7 +1772,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Panama",
-      "team_es": "Panam\u00e1",
+      "team_es": "Panamá",
       "fifa": "PAN",
       "group": "L",
       "xPts": 1.95,
@@ -1657,7 +1812,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Uzbekistan",
-      "team_es": "Uzbekist\u00e1n",
+      "team_es": "Uzbekistán",
       "fifa": "UZB",
       "group": "K",
       "xPts": 2.18,
@@ -1737,7 +1892,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "group": "F",
       "xPts": 5.46,
@@ -1857,7 +2012,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "South Africa",
-      "team_es": "Sud\u00e1frica",
+      "team_es": "Sudáfrica",
       "fifa": "RSA",
       "group": "A",
       "xPts": 2.81,
@@ -1957,7 +2112,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Belgium",
-      "team_es": "B\u00e9lgica",
+      "team_es": "Bélgica",
       "fifa": "BEL",
       "group": "G",
       "xPts": 6.27,
@@ -1976,7 +2131,7 @@ const WORLD_CUP_DATA = {
       "prob_gold": 2.55
     },
     {
-      "team_en": "C\u00f4te d'Ivoire",
+      "team_en": "Côte d'Ivoire",
       "team_es": "Costa de Marfil",
       "fifa": "CIV",
       "group": "E",
@@ -2097,7 +2252,7 @@ const WORLD_CUP_DATA = {
     },
     {
       "team_en": "Iran",
-      "team_es": "Ir\u00e1n",
+      "team_es": "Irán",
       "fifa": "IRN",
       "group": "G",
       "xPts": 3.42,
@@ -2118,7 +2273,7 @@ const WORLD_CUP_DATA = {
   ],
   "golden_boot": [
     {
-      "name": "Kylian Mbapp\u00e9",
+      "name": "Kylian Mbappé",
       "position": "Attacker",
       "team_en": "France",
       "team_es": "Francia",
@@ -2183,7 +2338,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 70.8
     },
     {
-      "name": "L. D\u00edaz",
+      "name": "L. Díaz",
       "position": "Midfielder",
       "team_en": "Colombia",
       "team_es": "Colombia",
@@ -2199,7 +2354,7 @@ const WORLD_CUP_DATA = {
       "name": "Mikel Oyarzabal",
       "position": "Attacker",
       "team_en": "Spain",
-      "team_es": "Espa\u00f1a",
+      "team_es": "España",
       "fifa": "ESP",
       "headshot_url": "https://media.api-sports.io/football/players/47323.png",
       "p_winner": 1.74,
@@ -2209,7 +2364,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 33.6
     },
     {
-      "name": "J. \u00c1lvarez",
+      "name": "J. Álvarez",
       "position": "Attacker",
       "team_en": "Argentina",
       "team_es": "Argentina",
@@ -2222,7 +2377,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 33.8
     },
     {
-      "name": "Vin\u00edcius J\u00fanior",
+      "name": "Vinícius Júnior",
       "position": "Midfielder",
       "team_en": "Brazil",
       "team_es": "Brasil",
@@ -2264,7 +2419,7 @@ const WORLD_CUP_DATA = {
       "name": "Lamine Yamal",
       "position": "Attacker",
       "team_en": "Spain",
-      "team_es": "Espa\u00f1a",
+      "team_es": "España",
       "fifa": "ESP",
       "headshot_url": "https://media.api-sports.io/football/players/386828.png",
       "p_winner": 0.71,
@@ -2274,7 +2429,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 22.4
     },
     {
-      "name": "O. Demb\u00e9l\u00e9",
+      "name": "O. Dembélé",
       "position": "Midfielder",
       "team_en": "France",
       "team_es": "Francia",
@@ -2290,7 +2445,7 @@ const WORLD_CUP_DATA = {
       "name": "R. Lukaku",
       "position": "Attacker",
       "team_en": "Belgium",
-      "team_es": "B\u00e9lgica",
+      "team_es": "Bélgica",
       "fifa": "BEL",
       "headshot_url": "https://media.api-sports.io/football/players/907.png",
       "p_winner": 0.65,
@@ -2329,7 +2484,7 @@ const WORLD_CUP_DATA = {
       "name": "Ferran Torres",
       "position": "Midfielder",
       "team_en": "Spain",
-      "team_es": "Espa\u00f1a",
+      "team_es": "España",
       "fifa": "ESP",
       "headshot_url": "https://media.api-sports.io/football/players/931.png",
       "p_winner": 0.4,
@@ -2342,7 +2497,7 @@ const WORLD_CUP_DATA = {
       "name": "M. Depay",
       "position": "Attacker",
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "headshot_url": "https://media.api-sports.io/football/players/667.png",
       "p_winner": 0.39,
@@ -2355,7 +2510,7 @@ const WORLD_CUP_DATA = {
       "name": "J. David",
       "position": "Attacker",
       "team_en": "Canada",
-      "team_es": "Canad\u00e1",
+      "team_es": "Canadá",
       "fifa": "CAN",
       "headshot_url": "https://media.api-sports.io/football/players/8489.png",
       "p_winner": 0.33,
@@ -2378,7 +2533,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 13.9
     },
     {
-      "name": "V. Gy\u00f6keres",
+      "name": "V. Gyökeres",
       "position": "Attacker",
       "team_en": "Sweden",
       "team_es": "Suecia",
@@ -2391,7 +2546,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 21.5
     },
     {
-      "name": "Lautaro Mart\u00ednez",
+      "name": "Lautaro Martínez",
       "position": "Attacker",
       "team_en": "Argentina",
       "team_es": "Argentina",
@@ -2404,10 +2559,10 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 20.0
     },
     {
-      "name": "J. Qui\u00f1ones",
+      "name": "J. Quiñones",
       "position": "Midfielder",
       "team_en": "Mexico",
-      "team_es": "M\u00e9xico",
+      "team_es": "México",
       "fifa": "MEX",
       "headshot_url": "https://media.api-sports.io/football/players/35532.png",
       "p_winner": 0.27,
@@ -2498,7 +2653,7 @@ const WORLD_CUP_DATA = {
       "name": "D. Kamada",
       "position": "Midfielder",
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "headshot_url": "https://media.api-sports.io/football/players/2601.png",
       "p_winner": 0.17,
@@ -2534,10 +2689,10 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 19.9
     },
     {
-      "name": "R. Jim\u00e9nez",
+      "name": "R. Jiménez",
       "position": "Attacker",
       "team_en": "Mexico",
-      "team_es": "M\u00e9xico",
+      "team_es": "México",
       "fifa": "MEX",
       "headshot_url": "https://media.api-sports.io/football/players/2887.png",
       "p_winner": 0.14,
@@ -2550,7 +2705,7 @@ const WORLD_CUP_DATA = {
       "name": "C. Larin",
       "position": "Attacker",
       "team_en": "Canada",
-      "team_es": "Canad\u00e1",
+      "team_es": "Canadá",
       "fifa": "CAN",
       "headshot_url": "https://media.api-sports.io/football/players/2001.png",
       "p_winner": 0.12,
@@ -2615,7 +2770,7 @@ const WORLD_CUP_DATA = {
       "name": "Keito Nakamura",
       "position": "Midfielder",
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "headshot_url": "https://media.api-sports.io/football/players/33321.png",
       "p_winner": 0.05,
@@ -2677,7 +2832,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 8.7
     },
     {
-      "name": "Jo\u00e3o Neves",
+      "name": "João Neves",
       "position": "Midfielder",
       "team_en": "Portugal",
       "team_es": "Portugal",
@@ -2755,7 +2910,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 2.3
     },
     {
-      "name": "D. Mu\u00f1oz",
+      "name": "D. Muñoz",
       "position": "Defender",
       "team_en": "Colombia",
       "team_es": "Colombia",
@@ -2875,7 +3030,7 @@ const WORLD_CUP_DATA = {
       "name": "V. van Dijk",
       "position": "Defender",
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "headshot_url": "https://media.api-sports.io/football/players/290.png",
       "p_winner": 0.0,
@@ -2885,7 +3040,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 1.8
     },
     {
-      "name": "L. \u00d8stig\u00e5rd",
+      "name": "L. Østigård",
       "position": "Defender",
       "team_en": "Norway",
       "team_es": "Noruega",
@@ -2898,7 +3053,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 0.9
     },
     {
-      "name": "Maur\u00edcio",
+      "name": "Maurício",
       "position": "Midfielder",
       "team_en": "Paraguay",
       "team_es": "Paraguay",
@@ -2979,7 +3134,7 @@ const WORLD_CUP_DATA = {
       "name": "O. Rekik",
       "position": "Defender",
       "team_en": "Tunisia",
-      "team_es": "T\u00fanez",
+      "team_es": "Túnez",
       "fifa": "TUN",
       "headshot_url": "https://media.api-sports.io/football/players/163068.png",
       "p_winner": 0.0,
@@ -2989,7 +3144,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 0.1
     },
     {
-      "name": "M. Ara\u00fajo",
+      "name": "M. Araújo",
       "position": "Midfielder",
       "team_en": "Uruguay",
       "team_es": "Uruguay",
@@ -3018,7 +3173,7 @@ const WORLD_CUP_DATA = {
       "name": "C. Summerville",
       "position": "Attacker",
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "headshot_url": "https://media.api-sports.io/football/players/37724.png",
       "p_winner": 0.0,
@@ -3044,7 +3199,7 @@ const WORLD_CUP_DATA = {
       "name": "A. Fayzullaev",
       "position": "Attacker",
       "team_en": "Uzbekistan",
-      "team_es": "Uzbekist\u00e1n",
+      "team_es": "Uzbekistán",
       "fifa": "UZB",
       "headshot_url": "https://media.api-sports.io/football/players/263676.png",
       "p_winner": 0.0,
@@ -3054,7 +3209,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 1.1
     },
     {
-      "name": "L. Krejc\u00ed",
+      "name": "L. Krejcí",
       "position": "Defender",
       "team_en": "Czechia",
       "team_es": "Rep. Checa",
@@ -3173,7 +3328,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 26.2
     },
     {
-      "name": "L. D\u00edaz",
+      "name": "L. Díaz",
       "position": "Midfielder",
       "team_en": "Colombia",
       "team_es": "Colombia",
@@ -3215,7 +3370,7 @@ const WORLD_CUP_DATA = {
       "name": "Lamine Yamal",
       "position": "Attacker",
       "team_en": "Spain",
-      "team_es": "Espa\u00f1a",
+      "team_es": "España",
       "fifa": "ESP",
       "headshot_url": "https://media.api-sports.io/football/players/386828.png",
       "p_winner": 2.19,
@@ -3241,7 +3396,7 @@ const WORLD_CUP_DATA = {
       "name": "K. De Bruyne",
       "position": "Midfielder",
       "team_en": "Belgium",
-      "team_es": "B\u00e9lgica",
+      "team_es": "Bélgica",
       "fifa": "BEL",
       "headshot_url": "https://media.api-sports.io/football/players/629.png",
       "p_winner": 2.06,
@@ -3277,7 +3432,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 17.8
     },
     {
-      "name": "Vin\u00edcius J\u00fanior",
+      "name": "Vinícius Júnior",
       "position": "Midfielder",
       "team_en": "Brazil",
       "team_es": "Brasil",
@@ -3306,7 +3461,7 @@ const WORLD_CUP_DATA = {
       "name": "D. Kamada",
       "position": "Midfielder",
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "headshot_url": "https://media.api-sports.io/football/players/2601.png",
       "p_winner": 1.45,
@@ -3332,7 +3487,7 @@ const WORLD_CUP_DATA = {
       "name": "M. Depay",
       "position": "Attacker",
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "headshot_url": "https://media.api-sports.io/football/players/667.png",
       "p_winner": 1.13,
@@ -3355,7 +3510,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 8.2
     },
     {
-      "name": "O. Demb\u00e9l\u00e9",
+      "name": "O. Dembélé",
       "position": "Midfielder",
       "team_en": "France",
       "team_es": "Francia",
@@ -3368,7 +3523,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 5.4
     },
     {
-      "name": "Kylian Mbapp\u00e9",
+      "name": "Kylian Mbappé",
       "position": "Attacker",
       "team_en": "France",
       "team_es": "Francia",
@@ -3410,7 +3565,7 @@ const WORLD_CUP_DATA = {
       "name": "R. Gravenberch",
       "position": "Midfielder",
       "team_en": "Netherlands",
-      "team_es": "Pa\u00edses Bajos",
+      "team_es": "Países Bajos",
       "fifa": "NED",
       "headshot_url": "https://media.api-sports.io/football/players/542.png",
       "p_winner": 0.68,
@@ -3420,7 +3575,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 17.9
     },
     {
-      "name": "Bruno Guimar\u00e3es",
+      "name": "Bruno Guimarães",
       "position": "Midfielder",
       "team_en": "Brazil",
       "team_es": "Brasil",
@@ -3433,7 +3588,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 10.3
     },
     {
-      "name": "M. \u00d8degaard",
+      "name": "M. Ødegaard",
       "position": "Midfielder",
       "team_en": "Norway",
       "team_es": "Noruega",
@@ -3459,7 +3614,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 6.4
     },
     {
-      "name": "Brahim D\u00edaz",
+      "name": "Brahim Díaz",
       "position": "Midfielder",
       "team_en": "Morocco",
       "team_es": "Marruecos",
@@ -3475,7 +3630,7 @@ const WORLD_CUP_DATA = {
       "name": "T. Kubo",
       "position": "Attacker",
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "headshot_url": "https://media.api-sports.io/football/players/32862.png",
       "p_winner": 0.35,
@@ -3488,7 +3643,7 @@ const WORLD_CUP_DATA = {
       "name": "R. Alvarado",
       "position": "Midfielder",
       "team_en": "Mexico",
-      "team_es": "M\u00e9xico",
+      "team_es": "México",
       "fifa": "MEX",
       "headshot_url": "https://media.api-sports.io/football/players/2879.png",
       "p_winner": 0.33,
@@ -3501,7 +3656,7 @@ const WORLD_CUP_DATA = {
       "name": "P. David",
       "position": "Attacker",
       "team_en": "Canada",
-      "team_es": "Canad\u00e1",
+      "team_es": "Canadá",
       "fifa": "CAN",
       "headshot_url": "https://media.api-sports.io/football/players/313353.png",
       "p_winner": 0.26,
@@ -3563,7 +3718,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 4.2
     },
     {
-      "name": "V. Gy\u00f6keres",
+      "name": "V. Gyökeres",
       "position": "Attacker",
       "team_en": "Sweden",
       "team_es": "Suecia",
@@ -3589,7 +3744,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 2.5
     },
     {
-      "name": "C. Hern\u00e1ndez",
+      "name": "C. Hernández",
       "position": "Attacker",
       "team_en": "Colombia",
       "team_es": "Colombia",
@@ -3641,7 +3796,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 1.8
     },
     {
-      "name": "N. Gonz\u00e1lez",
+      "name": "N. González",
       "position": "Attacker",
       "team_en": "Argentina",
       "team_es": "Argentina",
@@ -3657,7 +3812,7 @@ const WORLD_CUP_DATA = {
       "name": "Koki Ogawa",
       "position": "Attacker",
       "team_en": "Japan",
-      "team_es": "Jap\u00f3n",
+      "team_es": "Japón",
       "fifa": "JPN",
       "headshot_url": "https://media.api-sports.io/football/players/33289.png",
       "p_winner": 0.08,
@@ -3667,7 +3822,7 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 1.6
     },
     {
-      "name": "D. M\u00f8ller Wolfe",
+      "name": "D. Møller Wolfe",
       "position": "Defender",
       "team_en": "Norway",
       "team_es": "Noruega",
@@ -3787,7 +3942,7 @@ const WORLD_CUP_DATA = {
       "name": "H. Mejbri",
       "position": "Midfielder",
       "team_en": "Tunisia",
-      "team_es": "T\u00fanez",
+      "team_es": "Túnez",
       "fifa": "TUN",
       "headshot_url": "https://media.api-sports.io/football/players/180560.png",
       "p_winner": 0.01,
@@ -3849,10 +4004,10 @@ const WORLD_CUP_DATA = {
       "p_at_least_3": 0.1
     },
     {
-      "name": "\u00c9. Lira",
+      "name": "É. Lira",
       "position": "Midfielder",
       "team_en": "Mexico",
-      "team_es": "M\u00e9xico",
+      "team_es": "México",
       "fifa": "MEX",
       "headshot_url": "https://media.api-sports.io/football/players/266345.png",
       "p_winner": 0.0,
