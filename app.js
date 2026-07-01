@@ -210,7 +210,8 @@ function renderFixtures() {
     const roundMatch = state.filterRound === "all" || 
                        (state.filterRound === "r1" && f.round === 1) ||
                        (state.filterRound === "r2" && f.round === 2) ||
-                       (state.filterRound === "r3" && f.round === 3);
+                       (state.filterRound === "r3" && f.round === 3) ||
+                       (state.filterRound === "ko" && f.round >= 4);
     const groupMatch = state.filterGroup === "all" || f.group === state.filterGroup;
     return roundMatch && groupMatch;
   });
@@ -242,7 +243,7 @@ function renderFixtures() {
           <span>📅 ${kickoffMX.date}</span>
           <span>⏰ ${kickoffMX.time}</span>
         </div>
-        <span class="match-group-tag">Grupo ${f.group} - Jornada ${f.round}</span>
+        <span class="match-group-tag">${f.round >= 4 ? (f.round===4?"Dieciseisavos":f.round===5?"Octavos":f.round===6?"Cuartos":f.round===7?"Semifinal":"Final") : "Grupo " + f.group + " - Jornada " + f.round}</span>
       </div>
       <div class="match-vs-row">
         <!-- Home Team -->
@@ -260,6 +261,12 @@ function renderFixtures() {
             <span class="score-divider">:</span>
             <input type="number" min="0" placeholder="-" class="score-input away-score-input" value="${scoreA}" data-match-id="${f.id}">
           </div>
+          ${f.round >= 4 ? `
+          <div class="ko-advanced-selector ${scoreH !== '' && scoreH === scoreA ? '' : 'hidden'}" style="margin-top: 5px; font-size: 0.8rem; text-align: center;">
+            <span style="color:#888;">Empate (90m). Avanza:</span><br>
+            <button class="adv-btn ${pred.advanced === 'L' ? 'active' : ''}" data-adv="L">L</button>
+            <button class="adv-btn ${pred.advanced === 'V' ? 'active' : ''}" data-adv="V">V</button>
+          </div>` : ''}
           <div class="match-probs-row">
             <span class="prob-pill ${win === highest ? 'highest' : ''}">${win}% L</span>
             <span class="prob-pill ${draw === highest ? 'highest' : ''}">${draw}% E</span>
@@ -620,6 +627,7 @@ function executeMonteCarlo(N) {
     
     // 2. Simulate group matches
     fixturesList.forEach(f => {
+      if (f.round >= 4) return; // SKIP KNOCKOUT MATCHES FROM GROUP SIMULATION
       const pred = state.userPredictions[f.id];
       let goalsH = 0;
       let goalsA = 0;
