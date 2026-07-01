@@ -1,0 +1,40 @@
+A continuación, te presento las observaciones, ajustes sugeridos y la adición de elementos críticos para que el PRD quede completamente robusto antes de que lo pases a la fase de "Épicas" (Epics) con la Inteligencia Artificial.
+
+📋 Revisión y Ajustes Sugeridos al PRD
+1. Enfoque en Modelado Predictivo y "Quick Fill" (Sección 3)
+Comentario: La función de Quick Fill (Llenado Rápido) actualmente sugiere opciones aleatorias o predicciones simples.
+
+Ajuste Propuesto: Se puede potenciar esta característica añadiendo un componente de "Llenado Inteligente Basado en Datos". Utilizando la integración ya planificada con Google Gemini, la IA puede analizar las tendencias recientes de los equipos (mediante los datos extraídos de la API de ESPN) para ofrecerle al usuario un llenado automático basado en probabilidades estadísticas o rendimiento actual. Esto aporta un valor masivo para el usuario casual.
+
+2. Robustez en la Sincronización en Vivo y Bloqueo (Sección 3)
+Comentario: El bloqueo de pronósticos "exactamente al iniciar el partido" es propenso a disputas si los relojes del servidor y de la API difieren por segundos.
+
+Ajuste Propuesto: Implementar un Margen de Seguridad de Cierre (Buffer Time). Los pronósticos deberían bloquearse automáticamente 5 minutos antes de la hora oficial programada del partido. Además, se debe especificar que el backend (Firebase Cloud Functions) es la única fuente de verdad para la estampa de tiempo (timestamp), ignorando por completo la hora del dispositivo del cliente para evitar manipulaciones.
+
+3. Pasarelas de Pago y Contexto Local (Sección 4)
+Comentario: Mencionas Venmo, Mercado Pago y Google Pay.
+
+Ajuste Propuesto: Si el despliegue inicial o el mercado objetivo tiene un fuerte anclaje en México (por ejemplo, para la Liga MX), es crucial priorizar la integración visual y de flujos para Mercado Pago y SPEI (Transferencias interbancarias), ya que Venmo no opera de forma nativa para cuentas mexicanas. Para las variantes B2B (Sports Bars o Corporativos), el flujo debe permitir adjuntar un formato de comprobante de pago (fichas de depósito/capturas) que el administrador pueda validar con un solo clic.
+
+4. Arquitectura de Datos para el Registro Inmutable (Sección 6)
+Comentario: El uso de Firestore Security Rules es excelente para la seguridad, pero Firestore por sí mismo permite la edición si el usuario tiene permisos de admin.
+
+Ajuste Propuesto: Para garantizar una verdadera inmutabilidad en el Audit Log, se debe definir que la colección de auditoría sea "Append-Only" (solo lectura/escritura de nuevos documentos, prohibiendo explícitamente operaciones de update y delete en las reglas de Firebase). Cualquier corrección de puntos debe generar un nuevo registro de ajuste, nunca modificar el anterior.
+
+5. Escalabilidad del Comisionado de IA (Sección 6)
+Comentario: Usar Gemini para resolver disputas y explicar matemáticas de puntuación es innovador, pero puede ser costoso en tokens si lee todo el log de un torneo grande.
+
+Ajuste Propuesto: Diseñar un sistema de Contexto Reducido. En lugar de enviarle a la API todo el historial del torneo, el sistema debe extraer únicamente el Audit Log del partido en disputa y la cartilla de predicciones de los usuarios implicados.
+
+🚀 Siguiente Paso: Propuesta de Estructura de Épicas (Hoja de Ruta)
+Para que puedas alimentar esto de forma progresiva y eficiente a tu entorno de desarrollo, te sugiero dividir el proyecto en las siguientes 5 Épicas. Esto mantendrá los requerimientos claros y evitará que la IA se sature:
+
+Épica 1: Arquitectura Base y Autenticación (Setup de Vite+React 19, Firebase Auth, Estilos iniciales con Tailwind y estructura de base de datos en Firestore).
+
+Épica 2: Motor de Torneos y Quinielas (Setup Wizard para administradores, creación de lógica de puntuación, e interfaz del Panel del Participante).
+
+Épica 3: Sincronización Deportiva y Bloqueo (Integración con la API de ESPN, Cloud Functions para actualización de marcadores en tiempo real y lógica de bloqueo automatizado).
+
+Épica 4: Monetización, Pagos y Módulos B2B (Pantallas de validación de pago, gestión de créditos/suscripciones para torneos grandes y funcionalidad de marca blanca/QR).
+
+Épica 5: Inteligencia Artificial y Auditoría (Integración de Gemini para el "Llenado Inteligente" y el "Comisionado de IA", junto con el cierre de reglas de seguridad inmutables).

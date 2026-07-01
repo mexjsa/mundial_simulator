@@ -1,0 +1,59 @@
+Documento de Requisitos del Producto (PRD) para Plataforma de Administración de Quinielas
+Este PRD está estructurado con base en las mejores prácticas de plataformas actuales y en el caso de éxito de un usuario que construyó exactamente este tipo de proyecto utilizando Antigravity en 5 semanas
+.
+1. Objetivo del Producto
+Desarrollar una aplicación web automatizada que permita a los usuarios crear, gestionar y participar en quinielas deportivas (Mundial, Liga MX, NFL, etc.). El modelo de negocio principal se centrará en la monetización mediante el cobro por servicios de administración, ofreciendo planes de capacidad de usuarios o reteniendo un porcentaje de los fondos gestionados.
+2. Stack Tecnológico Sugerido (Probado en Antigravity)
+Para garantizar compatibilidad y reducir errores con Antigravity, se recomienda el siguiente stack
+:
+Frontend: React 19, TypeScript, Vite.
+Estilos y UI: Tailwind CSS y Lucide React (Íconos).
+Backend y Base de Datos: Firebase (Firestore, Auth, Cloud Functions v2).
+APIs Externas: ESPN API (para resultados y tiempos en vivo)
+ y Google Gemini (para funciones de inteligencia artificial)
+.
+Despliegue: Docker, alojado en un VPS usando Coolify
+.
+3. Funcionalidades Core (Experiencia del Usuario y Admin)
+Creación y Gestión de Torneos:
+Asistente de configuración (Setup Wizard): Un flujo paso a paso para definir torneos, costos de entrada, equipos y reglas de pago
+.
+Modos de juego: Permitir modo "Simple" (Ganador/Empate) y modo "Marcador Exacto"
+.
+Sistemas de Puntuación: Configurable por el administrador (ej. 3 puntos por marcador exacto, 1 punto por acertar solo el resultado ganador, etc.)
+.
+Reglas de Desempate: Múltiples criterios configurables, como la mayor cantidad de marcadores exactos o la diferencia/número de goles
+.
+Invitaciones Inteligentes: Generación de enlaces únicos para compartir vía WhatsApp o códigos de acceso cortos para unir participantes al instante
+.
+Tableros y Sincronización en Vivo:
+Scoreboard en Tiempo Real: Integración con API deportiva para actualizar marcadores, tiempo transcurrido de los juegos y tabla de posiciones automáticamente sin necesidad de recargar la página
+.
+Bloqueo Automático: Las quinielas y pronósticos deben bloquearse exactamente al iniciar el partido, evitando modificaciones posteriores
+.
+Llenado Rápido (Quick fill): Función para que el usuario prediga rápidamente campeones, finalistas o resultados aleatorios si no desea llenar la quiniela completa partido a partido
+.
+4. Modelo de Monetización y Pagos
+El sistema debe ofrecer herramientas para que el creador de la plataforma (tú) y los administradores de los grupos puedan cobrar:
+Venta de Capacidad (Créditos): Un modelo "Freemium" donde los torneos pequeños (ej. hasta 10 usuarios) sean gratuitos. Para expandir el límite (30, 100 o más participantes), el administrador del torneo debe comprar "créditos" o una suscripción premium en la app
+.
+Comisión de Administración: Configurar el cálculo automático del reparto de la bolsa de premios, reservando un porcentaje específico (ej. 10%) para gastos de administración y gestión
+.
+Integración de Recaudación: Permitir a los administradores de las quinielas añadir su enlace de Venmo, Mercado Pago, Google Pay o datos bancarios directamente en la plataforma para que los participantes les paguen la inscripción
+.
+Variantes B2B: Incluir la opción de "Quinielas Corporativas" de marca blanca (con logotipo de la empresa) y "Sports Bars" donde los usuarios juegan escaneando un código QR desde su mesa
+.
+5. Comunicación y Engagement
+Panel de Participante: Un dashboard con pestañas de torneos "Abiertos", "En Vivo" y "Completados", mostrando barras de progreso visuales
+.
+Alertas y Recordatorios Inteligentes: Envío automatizado de correos (Firebase Trigger Email) recordando a los usuarios pagar su inscripción o enviar sus pronósticos 2 horas antes de que cierre el evento
+.
+Programa de Referidos: Creación de enlaces únicos de referido para que los administradores ganen descuentos o créditos por invitar a nuevos jugadores
+.
+6. Auditoría, Seguridad y Cumplimiento
+Registro Inmutable (Audit Log): Utilizar Firestore Security Rules para crear un registro en el que cualquier acción crítica (cálculo de ganadores, generación de puntos) quede guardada permanentemente sin que nadie la pueda alterar. Esto garantiza la equidad del juego
+.
+Comisionado de Inteligencia Artificial: Integrar Gemini para generar explicaciones automáticas de por qué un usuario específico ganó y para ayudar a resolver disputas leyendo el registro inmutable de auditoría (con la instrucción estricta de no inventar datos)
+.
+Cumplimiento Normativo (KYC): Si la web llegará a cobrar y repartir el dinero de las apuestas directamente en el futuro (en lugar de que los administradores lo hagan por fuera), se deben incluir módulos de verificación de identidad, mayoría de edad y límites de juego responsable para cumplir con leyes locales, como los permisos de SEGOB en México
+.

@@ -73,16 +73,24 @@ function initData() {
   
   // Setup empty predictions map, pre-filling played matches
   WORLD_CUP_DATA.fixtures.forEach(f => {
+    let scoreH = null;
+    let scoreA = null;
+    let outcome = null;
+    
     if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
-      let outcome = "E";
-      if (f.home_score > f.away_score) outcome = "L";
-      if (f.away_score > f.home_score) outcome = "V";
-      state.userPredictions[f.id] = {
-        scoreHome: f.home_score,
-        scoreAway: f.away_score,
-        outcome: outcome
-      };
+      scoreH = f.home_score;
+      scoreA = f.away_score;
+      outcome = "E";
+      if (scoreH > scoreA) outcome = "L";
+      if (scoreA > scoreH) outcome = "V";
     }
+    
+    state.userPredictions[f.id] = {
+      scoreHome: scoreH,
+      scoreAway: scoreA,
+      outcome: outcome,
+      advanced: f.advanced || null
+    };
   });
 }
 
@@ -391,16 +399,24 @@ function updateCardUI(matchId) {
 // Reset all manual predictions
 function resetPredictions() {
   WORLD_CUP_DATA.fixtures.forEach(f => {
+    let scoreH = null;
+    let scoreA = null;
+    let outcome = null;
+    
     if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
-      let outcome = "E";
-      if (f.home_score > f.away_score) outcome = "L";
-      if (f.away_score > f.home_score) outcome = "V";
-      state.userPredictions[f.id] = {
-        scoreHome: f.home_score,
-        scoreAway: f.away_score,
-        outcome: outcome
-      };
+      scoreH = f.home_score;
+      scoreA = f.away_score;
+      outcome = "E";
+      if (scoreH > scoreA) outcome = "L";
+      if (scoreA > scoreH) outcome = "V";
     }
+    
+    state.userPredictions[f.id] = {
+      scoreHome: scoreH,
+      scoreAway: scoreA,
+      outcome: outcome,
+      advanced: f.advanced || null
+    };
   });
   
   renderFixtures();

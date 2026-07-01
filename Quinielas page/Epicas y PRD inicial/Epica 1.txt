@@ -1,0 +1,98 @@
+Épica 1: Arquitectura Base, Autenticación y Modelo de Datos (Stack: Supabase + React)
+Objetivo
+Configurar el entorno de desarrollo, inicializar el repositorio frontend con React 19 y Tailwind CSS, establecer la conexión con Supabase e implementar el flujo completo de autenticación y la estructura base de la base de datos (PostgreSQL).
+
+🛠️ Tarea 1.1: Inicialización del Frontend y Estilos
+Descripción: Crear el proyecto base utilizando Vite con React 19 y TypeScript, e integrar Tailwind CSS junto con Lucide React para la iconografía.
+
+Instrucciones para Antigravity:
+
+Inicializa un proyecto con vite usando la plantilla react-ts.
+
+Instala y configura Tailwind CSS v4 (o la última versión compatible con React 19).
+
+Instala lucide-react para los íconos de la interfaz.
+
+Limpia la estructura de carpetas estándar y organiza el proyecto en:
+
+/src/components (Componentes reutilizables de UI)
+
+/src/context (Contextos globales como Autenticación)
+
+/src/lib (Configuraciones de clientes como Supabase)
+
+/src/views o /src/pages (Pantallas principales)
+
+🔑 Tarea 1.2: Configuración de Supabase Client y Autenticación
+Descripción: Instalar el SDK de Supabase, configurar las variables de entorno e implementar un contexto de React para gestionar el estado de la sesión del usuario (Login, Registro y Recuperación de Contraseña).
+
+Instrucciones para Antigravity:
+
+Instala el cliente oficial: @supabase/supabase-js.
+
+Crea un archivo .env.local para almacenar VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY.
+
+Crea el cliente en src/lib/supabaseClient.ts.
+
+Implementa un AuthContext.tsx y un hook personalizado useAuth que escuche los cambios de estado con supabase.auth.onAuthStateChange.
+
+Diseña las vistas de interfaz (UI) utilizando Tailwind para:
+
+Pantalla de Login (Email/Password y opción de Google si se desea).
+
+Pantalla de Registro de usuarios.
+
+🗄️ Tarea 1.3: Diseño del Esquema de Base de Datos Base (SQL de Supabase)
+Descripción: Crear las tablas fundamentales en PostgreSQL a través del editor SQL de Supabase para soportar los usuarios y la estructura inicial de los torneos.
+
+Instrucciones para Antigravity:
+Genera un script SQL para correr en el Dashboard de Supabase con la siguiente estructura:
+
+Tabla profiles: Para extender los datos de los usuarios de auth.users (Idem a Firebase, pero relacional).
+
+id (uuid, clave primaria, referencía a auth.users)
+
+username (text, único)
+
+full_name (text)
+
+avatar_url (text)
+
+updated_at (timestamp)
+
+Tabla tournaments (Torneos/Quinielas creadas por administradores):
+
+id (uuid, clave primaria)
+
+creator_id (uuid, referencia a profiles.id)
+
+title (text)
+
+description (text)
+
+mode (text - 'simple' o 'exact_score')
+
+entry_cost (numeric)
+
+max_participants (integer)
+
+created_at (timestamp)
+
+Configura un Trigger en PostgreSQL para que cada vez que un usuario se registre en auth.users, se cree automáticamente su fila correspondiente en la tabla pública profiles.
+
+🛡️ Tarea 1.4: Políticas de Seguridad (RLS) y Rutas Protegidas
+Descripción: Configurar Row Level Security (RLS) en Supabase para asegurar las tablas y proteger las rutas del frontend en React para que solo usuarios autenticados puedan ver el contenido.
+
+Instrucciones para Antigravity:
+
+En Supabase (SQL):
+
+Activa RLS en la tabla profiles y tournaments.
+
+Crea una política que permita a cualquiera leer perfiles, pero solo al dueño modificar su propio perfil (auth.uid() = id).
+
+Crea una política en tournaments que permita a cualquier usuario autenticado leer los torneos, pero solo al creator_id editar o eliminar.
+
+En el Frontend (React):
+
+Crea un componente contenedor ProtectedRoute.tsx que verifique si hay una sesión activa en AuthContext. Si no está autenticado, redirige a /login.
