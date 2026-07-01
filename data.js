@@ -926,7 +926,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T01:00:00Z",
       "win_prob": 0.2633395304835695,
       "draw_prob": 0.2438922696055471,
-      "loss_prob": 0.4927681999108834
+      "loss_prob": 0.4927681999108834,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 3
     },
     {
       "id": 58546832,
@@ -942,7 +945,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T01:00:00Z",
       "win_prob": 0.2655103462431277,
       "draw_prob": 0.2444902372501455,
-      "loss_prob": 0.4899994165067266
+      "loss_prob": 0.4899994165067266,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 0
     },
     {
       "id": 58546837,
@@ -1034,7 +1040,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-26T02:00:00Z",
       "win_prob": 0.3572649951465957,
       "draw_prob": 0.258478046630087,
-      "loss_prob": 0.3842569582233173
+      "loss_prob": 0.3842569582233173,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 2
     },
     {
       "id": 58546850,
@@ -1050,7 +1059,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-26T02:00:00Z",
       "win_prob": 0.458748805457462,
       "draw_prob": 0.250540973457003,
-      "loss_prob": 0.290710221085535
+      "loss_prob": 0.290710221085535,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546855,
@@ -1066,7 +1078,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T20:00:00Z",
       "win_prob": 0.232667105469781,
       "draw_prob": 0.234174561991974,
-      "loss_prob": 0.533158332538245
+      "loss_prob": 0.533158332538245,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1
     },
     {
       "id": 58546856,
@@ -1082,7 +1097,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T20:00:00Z",
       "win_prob": 0.1362175108224072,
       "draw_prob": 0.1881705201673039,
-      "loss_prob": 0.675611969010289
+      "loss_prob": 0.675611969010289,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 2
     },
     {
       "id": 58546861,
@@ -1098,7 +1116,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T23:00:00Z",
       "win_prob": 0.1063091615323256,
       "draw_prob": 0.1683798986257987,
-      "loss_prob": 0.7253109398418757
+      "loss_prob": 0.7253109398418757,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "id": 58546862,
@@ -1114,7 +1135,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-25T23:00:00Z",
       "win_prob": 0.4300773553718356,
       "draw_prob": 0.2548087441232786,
-      "loss_prob": 0.3151139005048859
+      "loss_prob": 0.3151139005048859,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546867,
@@ -1130,7 +1154,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T03:00:00Z",
       "win_prob": 0.08097881516926321,
       "draw_prob": 0.1487268509032531,
-      "loss_prob": 0.7702943339274836
+      "loss_prob": 0.7702943339274836,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 5
     },
     {
       "id": 58546868,
@@ -1146,7 +1173,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T03:00:00Z",
       "win_prob": 0.4799724962997127,
       "draw_prob": 0.2465750016958109,
-      "loss_prob": 0.2734525020044765
+      "loss_prob": 0.2734525020044765,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1
     },
     {
       "id": 58546873,
@@ -1162,7 +1192,10 @@ const WORLD_CUP_DATA = {
       "kickoff": null,
       "win_prob": 0.1285065465061606,
       "draw_prob": 0.183370286539893,
-      "loss_prob": 0.6881231669539464
+      "loss_prob": 0.6881231669539464,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 1
     },
     {
       "id": 58546874,
@@ -1178,7 +1211,10 @@ const WORLD_CUP_DATA = {
       "kickoff": null,
       "win_prob": 0.3706520650465527,
       "draw_prob": 0.2586958699068946,
-      "loss_prob": 0.3706520650465527
+      "loss_prob": 0.3706520650465527,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546879,
@@ -1194,7 +1230,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-26T19:00:00Z",
       "win_prob": 0.2021013478452949,
       "draw_prob": 0.2221771288317058,
-      "loss_prob": 0.5757215233229993
+      "loss_prob": 0.5757215233229993,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 4
     },
     {
       "id": 58546880,
@@ -1210,7 +1249,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-26T19:00:00Z",
       "win_prob": 0.7097692630505823,
       "draw_prob": 0.1747781148617437,
-      "loss_prob": 0.1154526220876741
+      "loss_prob": 0.1154526220876741,
+      "status": "FINISHED",
+      "home_score": 5,
+      "away_score": 0
     },
     {
       "id": 58546885,
@@ -1226,7 +1268,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-28T02:00:00Z",
       "win_prob": 0.01527640647323377,
       "draw_prob": 0.05122946421035286,
-      "loss_prob": 0.9334941293164134
+      "loss_prob": 0.9334941293164134,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 3
     },
     {
       "id": 58546886,
@@ -1242,7 +1287,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-28T02:00:00Z",
       "win_prob": 0.2741732853477749,
       "draw_prob": 0.2467561595359012,
-      "loss_prob": 0.4790705551163239
+      "loss_prob": 0.4790705551163239,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 3
     },
     {
       "id": 58546891,
@@ -1258,7 +1306,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T23:30:00Z",
       "win_prob": 0.256813085697182,
       "draw_prob": 0.2420222891592659,
-      "loss_prob": 0.5011646251435521
+      "loss_prob": 0.5011646251435521,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 0
     },
     {
       "id": 58546892,
@@ -1274,7 +1325,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T23:30:00Z",
       "win_prob": 0.4203068644296393,
       "draw_prob": 0.255940279332813,
-      "loss_prob": 0.3237528562375476
+      "loss_prob": 0.3237528562375476,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 1
     },
     {
       "id": 58546897,
@@ -1290,7 +1344,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T21:00:00Z",
       "win_prob": 0.0292302341441042,
       "draw_prob": 0.07860150873644742,
-      "loss_prob": 0.8921682571194484
+      "loss_prob": 0.8921682571194484,
+      "status": "FINISHED",
+      "home_score": 0,
+      "away_score": 2
     },
     {
       "id": 58546898,
@@ -1306,7 +1363,10 @@ const WORLD_CUP_DATA = {
       "kickoff": "2026-06-27T21:00:00Z",
       "win_prob": 0.6297150609340001,
       "draw_prob": 0.2047563951973295,
-      "loss_prob": 0.1655285438686704
+      "loss_prob": 0.1655285438686704,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1
     }
   ],
   "team_stats": [
