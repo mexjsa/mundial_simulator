@@ -166,7 +166,7 @@ function setupEventListeners() {
       const dateStr = new Date().toLocaleDateString("sv-SE", { timeZone: "America/Mexico_City" });
       const expectedCode = getDailyCode(dateStr);
 
-      if (enteredCode === expectedCode || enteredCode === "nexos2026" || enteredCode === "nexos2026master" || enteredCode === "SKYNET-VIP-06A75889-9B83") {
+      if (enteredCode === expectedCode || enteredCode === "nexos2026" || enteredCode === "NEXOS10" || enteredCode === "nexos2026master" || enteredCode === "SKYNET-VIP-06A75889-9B83") {
         if (errorMsg) errorMsg.classList.add("hidden");
         state.isUnlocked = true;
         state.unlockTime = Date.now();
@@ -1675,7 +1675,7 @@ function startAccessTimerLoop() {
 
     if (isUnlocked && unlockTime) {
       const elapsed = Date.now() - unlockTime;
-      const remaining = 24 * 60 * 60 * 1000 - elapsed;
+      const remaining = 10 * 24 * 60 * 60 * 1000 - elapsed;
 
       if (remaining <= 0) {
         // Expiraron las 24 horas: bloquear sitio y borrar llaves en memoria
