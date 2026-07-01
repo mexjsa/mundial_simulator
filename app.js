@@ -73,179 +73,14 @@ function initData() {
   
   // Setup empty predictions map, pre-filling played matches
   WORLD_CUP_DATA.fixtures.forEach(f => {
-    if (f.id === 58546827) {
-      // México 2 - 0 Sudáfrica (June 11, 2026 - Opening Match)
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
       state.userPredictions[f.id] = {
-        scoreHome: 2,
-        scoreAway: 0,
-        outcome: "L"
-      };
-    } else if (f.id === 58546828) {
-      // Corea del Sur 2 - 1 Rep. Checa (June 11, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 2,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546833) {
-      // Canadá 1 - 1 Bosnia y Herzegovina (June 12, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546845) {
-      // Estados Unidos 4 - 1 Paraguay (June 12, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 4,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546834) {
-      // Catar 1 - 1 Suiza (June 13, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546839) {
-      // Brasil 1 - 1 Marruecos (June 13, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546840) {
-      // Haití 0 - 1 Escocia (June 13, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 0,
-        scoreAway: 1,
-        outcome: "V"
-      };
-    } else if (f.id === 58546846) {
-      // Australia 2 - 0 Turquía (June 13, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 2,
-        scoreAway: 0,
-        outcome: "L"
-      };
-    } else if (f.id === 58546851) {
-      // Alemania 7 - 1 Curazao (June 14, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 7,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546852) {
-      // Costa de Marfil 1 - 0 Ecuador (June 14, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 0,
-        outcome: "L"
-      };
-    } else if (f.id === 58546857) {
-      // Países Bajos 2 - 2 Japón (June 14, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 2,
-        scoreAway: 2,
-        outcome: "E"
-      };
-    } else if (f.id === 58546858) {
-      // Suecia 5 - 1 Túnez (June 14, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 5,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546869) {
-      // España 0 - 0 Cabo Verde (June 15, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 0,
-        scoreAway: 0,
-        outcome: "E"
-      };
-    } else if (f.id === 58546863) {
-      // Bélgica 1 - 1 Egipto (June 15, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546870) {
-      // Arabia Saudita 1 - 1 Uruguay (June 15, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546864) {
-      // Irán 2 - 2 Nueva Zelanda (June 15, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 2,
-        scoreAway: 2,
-        outcome: "E"
-      };
-    } else if (f.id === 58546875) {
-      // Francia 3 - 1 Senegal (June 16, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 3,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546876) {
-      // Irak 1 - 4 Noruega (June 16, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 4,
-        outcome: "V"
-      };
-    } else if (f.id === 58546881) {
-      // Argentina 3 - 0 Argelia (June 16, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 3,
-        scoreAway: 0,
-        outcome: "L"
-      };
-    } else if (f.id === 58546882) {
-      // Austria 3 - 1 Jordania (June 16, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 3,
-        scoreAway: 1,
-        outcome: "L"
-      };
-    } else if (f.id === 58546887) {
-      // Portugal 1 - 1 Congo DR (June 17, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 1,
-        outcome: "E"
-      };
-    } else if (f.id === 58546888) {
-      // Uzbekistan 1 - 3 Colombia (June 17, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 3,
-        outcome: "V"
-      };
-    } else if (f.id === 58546893) {
-      // England 4 - 2 Croatia (June 17, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 4,
-        scoreAway: 2,
-        outcome: "L"
-      };
-    } else if (f.id === 58546894) {
-      // Ghana 1 - 0 Panama (June 17, 2026)
-      state.userPredictions[f.id] = {
-        scoreHome: 1,
-        scoreAway: 0,
-        outcome: "L"
-      };
-    } else {
-      state.userPredictions[f.id] = {
-        scoreHome: null,
-        scoreAway: null,
-        outcome: null
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
       };
     }
   });
@@ -554,11 +389,16 @@ function updateCardUI(matchId) {
 // Reset all manual predictions
 function resetPredictions() {
   WORLD_CUP_DATA.fixtures.forEach(f => {
-    state.userPredictions[f.id] = {
-      scoreHome: null,
-      scoreAway: null,
-      outcome: null
-    };
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
+    }
   });
   
   renderFixtures();
@@ -1068,29 +908,15 @@ function updateStandingsUI() {
   
   // Parse user predictions to compute current actual standings
   WORLD_CUP_DATA.fixtures.forEach(f => {
-    const pred = state.userPredictions[f.id];
-    let scoreH = null;
-    let scoreA = null;
-    
-    if (pred.scoreHome !== null && pred.scoreAway !== null) {
-      scoreH = pred.scoreHome;
-      scoreA = pred.scoreAway;
-    } else if (pred.outcome === "L") { scoreH = 1; scoreA = 0; }
-    else if (pred.outcome === "V") { scoreH = 0; scoreA = 1; }
-    else if (pred.outcome === "E") { scoreH = 0; scoreA = 0; }
-    
-    if (scoreH !== null && scoreA !== null) {
-      const gH = groupStats[f.group][f.home_en];
-      const gA = groupStats[f.group][f.away_en];
-      
-      gH.gf += scoreH;
-      gH.gd += (scoreH - scoreA);
-      gA.gf += scoreA;
-      gA.gd += (scoreA - scoreH);
-      
-      if (scoreH > scoreA) { gH.pts += 3; }
-      else if (scoreH < scoreA) { gA.pts += 3; }
-      else { gH.pts += 1; gA.pts += 1; }
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
     }
   });
   
@@ -1706,18 +1532,31 @@ function handleLayoutUpload(e) {
       // Crear mapa de partidos en JS para buscar de manera eficiente
       const fixtureMap = {};
       WORLD_CUP_DATA.fixtures.forEach(f => {
-        const key = `${normalizeTeamName(f.home_es)} vs ${normalizeTeamName(f.away_es)}`;
-        fixtureMap[key] = f;
-      });
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
+    }
+  });
 
       // Limpiar predicciones previas en memoria
       WORLD_CUP_DATA.fixtures.forEach(f => {
-        state.userPredictions[f.id] = {
-          scoreHome: null,
-          scoreAway: null,
-          outcome: null
-        };
-      });
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
+    }
+  });
 
       let parsedCount = 0;
       let matchedCount = 0;
