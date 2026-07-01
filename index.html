@@ -104,22 +104,12 @@
           <strong>Nota Metodológica:</strong> Las probabilidades individuales y del torneo se calculan mediante un modelo de simulación de Monte Carlo de 50,000 ejecuciones. Los goles de cada partido se modelan estadísticamente utilizando una distribución de Poisson basada en la fuerza relativa ofensiva y defensiva de cada selección (ratings Elo y xG esperados). Los resultados sugeridos corresponden al escenario con la mayor probabilidad matemática simple.
         </div>
         
-        <!-- Layout Controls -->
-        <div class="layout-controls-row">
-          <a href="Mundial 2026 (fase de grupos) - Plantilla.xlsx" class="btn btn-secondary" download>
-            📥 Descargar Plantilla Vacía
-          </a>
-          <label class="btn btn-secondary btn-file-upload">
-            📤 Subir Quiniela (Excel)
-            <input type="file" id="layout-file-input" accept=".xlsx, .xls" style="display: none;">
-          </label>
-        </div>
-        
         <div class="filters-row">
           <button class="filter-btn active" data-filter="all">Todos los Partidos</button>
           <button class="filter-btn" data-filter="r1">Jornada 1</button>
           <button class="filter-btn" data-filter="r2">Jornada 2</button>
           <button class="filter-btn" data-filter="r3">Jornada 3</button>
+          <button class="filter-btn" data-filter="ko">Fase Final (KO)</button>
           <div class="filter-group-select">
             <label for="group-filter">Filtrar Grupo:</label>
             <select id="group-filter">

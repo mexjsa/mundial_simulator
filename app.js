@@ -184,12 +184,7 @@ function setupEventListeners() {
     });
   }
 
-  // Layout file upload listener
-  const layoutInput = document.getElementById("layout-file-input");
-  if (layoutInput) {
-    layoutInput.addEventListener("change", handleLayoutUpload);
   }
-}
 
 // Switch tabs
 function switchTab(tabId) {
