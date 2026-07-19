@@ -4768,9 +4768,9 @@ window.appData.koMatches = [
   {
     "home": "Argentina",
     "away": "Spain",
-    "status": "TIMED",
-    "home_score": null,
-    "away_score": null,
+    "status": "FINISHED",
+    "home_score": 0,
+    "away_score": 0,
     "home_prob": 35,
     "draw_prob": 30,
     "away_prob": 35
