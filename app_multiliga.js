@@ -1416,9 +1416,18 @@ function resetPredictions() {
 
 
 function renderMatchStats(f, panel) {
-  const win = f.win_prob;
-  const draw = f.draw_prob;
-  const loss = f.loss_prob;
+  
+  let win = f.win_prob;
+  let draw = f.draw_prob;
+  let loss = f.loss_prob;
+  
+  if (win === undefined) {
+    const baselineProbs = calculateMatchProbs(f.home, f.away);
+    win = baselineProbs.win;
+    draw = baselineProbs.draw;
+    loss = baselineProbs.loss;
+  }
+
   
   // Calculate expected goals (xG) using a log-odds difference model
   const diff = 0.9 * Math.log((win + 0.05) / (loss + 0.05));
