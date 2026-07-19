@@ -5007,8 +5007,8 @@ const LIGA_MX_DATA = {
       "date": "2026-07-16",
       "home": "Tijuana",
       "away": "Tigres UANL",
-      "home_goals": 1,
-      "away_goals": 3,
+      "home_goals": 3,
+      "away_goals": 1,
       "status": "FINISHED",
       "home_elo": 1601.85370724818,
       "away_elo": 1637.99250437968

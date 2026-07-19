@@ -474,6 +474,7 @@ function renderFixtures() {
             <span class="team-name-label">${f.away}</span>
           </div>
         </div>
+        <div class="match-stats-panel hidden"></div>
       `;
       
     // Accordion toggle click listener
