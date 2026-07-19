@@ -62,6 +62,13 @@
         </div>
         
         <div class="control-group">
+          <label for="league-selector">Liga / Torneo:</label>
+          <select id="league-selector">
+            <option value="worldcup" selected>Mundial 2026</option>
+            <option value="ligamx">Liga MX (Apertura 2026)</option>
+          </select>
+        </div>
+        <div class="control-group">
           <label for="sim-iterations">Iteraciones:</label>
           <select id="sim-iterations">
             <option value="1000">1,000 (Rápido)</option>
@@ -87,8 +94,9 @@
     <div class="nav-container">
       <button class="nav-tab active" data-tab="fixtures">Partidos</button>
       <button class="nav-tab" data-tab="standings">Posiciones</button>
-      <button class="nav-tab" data-tab="bracket">Llave de Eliminación</button>
-      <button class="nav-tab" data-tab="awards">Bota de Oro & Asistencias</button>
+      <button class="nav-tab" data-tab="bracket" id="nav-tab-bracket">Llave de Eliminación</button>
+      <button class="nav-tab" data-tab="awards" id="nav-tab-awards">Bota de Oro & Asistencias</button>
+      <button class="nav-tab hidden" data-tab="matrix" id="nav-tab-matrix">Matriz de Posición</button>
     </div>
   </nav>
 
@@ -228,6 +236,19 @@
       </div>
     </section>
 
+    <!-- Tab 5: Position Matrix -->
+    <section id="tab-matrix" class="tab-pane">
+      <div class="matrix-header">
+        <h2>Matriz de Probabilidad de Posiciones (Estilo FMD)</h2>
+        <p class="description">Mapa de calor que representa la probabilidad de cada equipo de finalizar en cada posición de la tabla general (del 1 al 18) después de correr las simulaciones Monte Carlo.</p>
+      </div>
+      <div class="table-responsive" style="margin-top: 1.5rem;">
+        <table class="matrix-table" id="matrix-position-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+          <!-- Rendered dynamically by app.js -->
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -240,6 +261,6 @@
 
   <!-- Scripts -->
   <script src="data.js?v=20260701_3"></script>
-  <script src="app.js?v=20260701_3"></script>
+  <script src="app_multiliga.js?v=20260701_3"></script>
 </body>
 </html>

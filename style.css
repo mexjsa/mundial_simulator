@@ -961,6 +961,56 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Position Matrix / Heatmap Table */
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  background: var(--bg-card);
+  border-radius: var(--border-radius-md);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.matrix-table th {
+  background-color: var(--primary-navy);
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 0.65rem 0.35rem;
+  border: 1px solid var(--border-color);
+}
+
+.matrix-table td {
+  padding: 0.5rem 0.3rem;
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.matrix-team-cell {
+  text-align: left;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.75rem !important;
+  background-color: var(--bg-card) !important;
+}
+
+/* Heatmap cell coloring based on percentage */
+.matrix-cell {
+  transition: background-color 0.2s ease;
+}
+
+.cell-p0 { background-color: transparent; color: rgba(255,255,255,0.15) !important; }
+.cell-p-low { background-color: rgba(37, 99, 235, 0.15); color: var(--text-muted); }
+.cell-p-med-low { background-color: rgba(37, 99, 235, 0.35); color: var(--text-main); }
+.cell-p-med { background-color: rgba(37, 99, 235, 0.55); color: #ffffff; }
+.cell-p-med-high { background-color: rgba(37, 99, 235, 0.75); color: #ffffff; }
+.cell-p-high { background-color: var(--accent-gold); color: #08090c; font-weight: 700; }
+
 /* Helper utilities */
 .hidden {
   display: none !important;

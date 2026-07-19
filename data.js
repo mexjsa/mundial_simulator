@@ -1543,9 +1543,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.6694853753821132,
       "draw_prob": 0.1788523496769823,
       "loss_prob": 0.1516622749409046,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 2,
       "advanced": null
     },
     {
@@ -1563,9 +1563,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.5849012604003615,
       "draw_prob": 0.2192821682399058,
       "loss_prob": 0.19581657135973263,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0,
       "advanced": null
     },
     {
@@ -1583,9 +1583,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.5974858738926004,
       "draw_prob": 0.18578785836932882,
       "loss_prob": 0.21672626773807072,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 1,
       "advanced": null
     },
     {
@@ -1603,9 +1603,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.900320563511307,
       "draw_prob": 0.07057237454898062,
       "loss_prob": 0.02910706193971249,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 3,
+      "away_score": 0,
       "advanced": null
     },
     {
@@ -1623,9 +1623,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.14619964931799212,
       "draw_prob": 0.22136539018371873,
       "loss_prob": 0.6324349604982892,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1,
       "advanced": null
     },
     {
@@ -1643,9 +1643,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.9206239170383373,
       "draw_prob": 0.058563543679405,
       "loss_prob": 0.020812539282257632,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 1,
       "advanced": null
     },
     {
@@ -1663,9 +1663,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.6120365805663919,
       "draw_prob": 0.20800696048627204,
       "loss_prob": 0.1799564589473361,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 2,
+      "away_score": 0,
       "advanced": null
     },
     {
@@ -1723,9 +1723,9 @@ const WORLD_CUP_DATA = {
       "win_prob": 0.7753794758791218,
       "draw_prob": 0.1500513990469815,
       "loss_prob": 0.07456912507389674,
-      "status": "TIMED",
-      "home_score": null,
-      "away_score": null,
+      "status": "FINISHED",
+      "home_score": 1,
+      "away_score": 2,
       "advanced": null
     },
     {
@@ -1747,6 +1747,134 @@ const WORLD_CUP_DATA = {
       "home_score": null,
       "away_score": null,
       "advanced": null
+    },
+    {
+      "id": 123580104,
+      "round": 5,
+      "home_en": "France",
+      "away_en": "Morocco",
+      "home_es": "Francia",
+      "away_es": "Marruecos",
+      "date": "2026-07-09",
+      "kickoff": "16:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.54,
+      "draw_prob": 0.23,
+      "loss_prob": 0.23
+    },
+    {
+      "id": 123580105,
+      "round": 5,
+      "home_en": "Spain",
+      "away_en": "Belgium",
+      "home_es": "España",
+      "away_es": "Bélgica",
+      "date": "2026-07-10",
+      "kickoff": "15:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.54,
+      "draw_prob": 0.23,
+      "loss_prob": 0.22
+    },
+    {
+      "id": 123580106,
+      "round": 5,
+      "home_en": "Norway",
+      "away_en": "England",
+      "home_es": "Noruega",
+      "away_es": "Inglaterra",
+      "date": "2026-07-11",
+      "kickoff": "17:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.28,
+      "draw_prob": 0.25,
+      "loss_prob": 0.47
+    },
+    {
+      "id": 123580107,
+      "round": 5,
+      "home_en": "Argentina",
+      "away_en": "Switzerland",
+      "home_es": "Argentina",
+      "away_es": "Suiza",
+      "date": "2026-07-11",
+      "kickoff": "21:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.54,
+      "draw_prob": 0.23,
+      "loss_prob": 0.23
+    },
+    {
+      "id": 123580108,
+      "round": 6,
+      "home_en": "France",
+      "away_en": "Spain",
+      "home_es": "Francia",
+      "away_es": "España",
+      "date": "2026-07-14",
+      "kickoff": "13:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.35,
+      "draw_prob": 0.3,
+      "loss_prob": 0.35
+    },
+    {
+      "id": 123580109,
+      "round": 6,
+      "home_en": "Argentina",
+      "away_en": "Brazil",
+      "home_es": "Argentina",
+      "away_es": "Brasil",
+      "date": "2026-07-15",
+      "kickoff": "13:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.35,
+      "draw_prob": 0.3,
+      "loss_prob": 0.35
+    },
+    {
+      "id": 123580110,
+      "round": 7,
+      "home_en": "England",
+      "away_en": "France",
+      "home_es": "Inglaterra",
+      "away_es": "Francia",
+      "date": "2026-07-18",
+      "kickoff": "15:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.33,
+      "draw_prob": 0.33,
+      "loss_prob": 0.34
+    },
+    {
+      "id": 123580111,
+      "round": 8,
+      "home_en": "Argentina",
+      "away_en": "Spain",
+      "home_es": "Argentina",
+      "away_es": "España",
+      "date": "2026-07-19",
+      "kickoff": "13:00:00",
+      "status": "TIMED",
+      "home_score": null,
+      "away_score": null,
+      "win_prob": 0.35,
+      "draw_prob": 0.3,
+      "loss_prob": 0.35
     }
   ],
   "team_stats": [
@@ -4481,6 +4609,486 @@ const WORLD_CUP_DATA = {
       "p_at_least_1": 100.0,
       "p_at_least_2": 6.1,
       "p_at_least_3": 0.3
+    }
+  ]
+};
+window.appData = window.appData || {};
+
+window.appData.koMatches = [
+  {
+    "home": "Canada",
+    "away": "Morocco",
+    "status": "FINISHED",
+    "home_score": 0,
+    "away_score": 3,
+    "home_prob": 30,
+    "draw_prob": 23,
+    "away_prob": 47
+  },
+  {
+    "home": "Paraguay",
+    "away": "France",
+    "status": "FINISHED",
+    "home_score": 0,
+    "away_score": 1,
+    "home_prob": 32,
+    "draw_prob": 27,
+    "away_prob": 41
+  },
+  {
+    "home": "Brazil",
+    "away": "Norway",
+    "status": "FINISHED",
+    "home_score": 1,
+    "away_score": 2,
+    "home_prob": 42,
+    "draw_prob": 26,
+    "away_prob": 32
+  },
+  {
+    "home": "Mexico",
+    "away": "England",
+    "status": "FINISHED",
+    "home_score": 2,
+    "away_score": 3,
+    "home_prob": 28,
+    "draw_prob": 25,
+    "away_prob": 47
+  },
+  {
+    "home": "Portugal",
+    "away": "Spain",
+    "status": "FINISHED",
+    "home_score": 0,
+    "away_score": 1,
+    "home_prob": 38,
+    "draw_prob": 29,
+    "away_prob": 33
+  },
+  {
+    "home": "USA",
+    "away": "Belgium",
+    "status": "FINISHED",
+    "home_score": 1,
+    "away_score": 4,
+    "home_prob": 20,
+    "draw_prob": 22,
+    "away_prob": 58
+  },
+  {
+    "home": "Argentina",
+    "away": "Egypt",
+    "status": "FINISHED",
+    "home_score": 3,
+    "away_score": 2,
+    "home_prob": 65,
+    "draw_prob": 22,
+    "away_prob": 13
+  },
+  {
+    "home": "Switzerland",
+    "away": "Colombia",
+    "status": "FINISHED",
+    "home_score": 1,
+    "away_score": 0,
+    "home_prob": 45,
+    "draw_prob": 28,
+    "away_prob": 27
+  },
+  {
+    "home": "France",
+    "away": "Morocco",
+    "status": "FINISHED",
+    "home_score": 2,
+    "away_score": 0,
+    "home_prob": 55,
+    "draw_prob": 25,
+    "away_prob": 20
+  },
+  {
+    "home": "Spain",
+    "away": "Belgium",
+    "status": "FINISHED",
+    "home_score": 2,
+    "away_score": 1,
+    "home_prob": 48,
+    "draw_prob": 27,
+    "away_prob": 25
+  },
+  {
+    "home": "Norway",
+    "away": "England",
+    "status": "FINISHED",
+    "home_score": 1,
+    "away_score": 2,
+    "home_prob": 25,
+    "draw_prob": 28,
+    "away_prob": 47
+  },
+  {
+    "home": "Argentina",
+    "away": "Switzerland",
+    "status": "FINISHED",
+    "home_score": 2,
+    "away_score": 1,
+    "home_prob": 60,
+    "draw_prob": 25,
+    "away_prob": 15
+  },
+  {
+    "home": "France",
+    "away": "Spain",
+    "status": "FINISHED",
+    "home_score": 0,
+    "away_score": 2,
+    "home_prob": 32,
+    "draw_prob": 28,
+    "away_prob": 40
+  },
+  {
+    "home": "Argentina",
+    "away": "England",
+    "status": "FINISHED",
+    "home_score": 2,
+    "away_score": 1,
+    "home_prob": 38,
+    "draw_prob": 29,
+    "away_prob": 33
+  },
+  {
+    "home": "England",
+    "away": "France",
+    "status": "FINISHED",
+    "home_score": 6,
+    "away_score": 4,
+    "home_prob": 33,
+    "draw_prob": 33,
+    "away_prob": 34
+  },
+  {
+    "home": "Argentina",
+    "away": "Spain",
+    "status": "TIMED",
+    "home_score": null,
+    "away_score": null,
+    "home_prob": 35,
+    "draw_prob": 30,
+    "away_prob": 35
+  }
+];
+
+
+const LIGA_MX_DATA = {
+  "league_avg_home": 1.45,
+  "league_avg_away": 1.15,
+  "teams": [
+    {
+      "name": "Tijuana",
+      "elo": 1601.85370724818,
+      "atk_h": 1.2400488474662474,
+      "def_h": 0.7854145793457976,
+      "atk_a": 1.0145854206542024,
+      "def_a": 0.9599511525337526,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Club_Tijuana_logo.svg/600px-Club_Tijuana_logo.svg.png"
+    },
+    {
+      "name": "Mazatlán",
+      "elo": 1426.86486087097,
+      "atk_h": 0.9994391836975839,
+      "def_h": 0.9822770315201588,
+      "atk_a": 0.8177229684798413,
+      "def_a": 1.2005608163024164,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Mazatl%C3%A1n_F.C._logo.svg/600px-Mazatl%C3%A1n_F.C._logo.svg.png"
+    },
+    {
+      "name": "Puebla",
+      "elo": 1318.28569813318,
+      "atk_h": 0.8501428349331225,
+      "def_h": 1.1044285896001726,
+      "atk_a": 0.6955714103998274,
+      "def_a": 1.3498571650668778,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/15/ClubPuebla.png/600px-ClubPuebla.png"
+    },
+    {
+      "name": "Atlas",
+      "elo": 1479.82458486552,
+      "atk_h": 1.07225880419009,
+      "def_h": 0.9226973420262902,
+      "atk_a": 0.8773026579737099,
+      "def_a": 1.1277411958099102,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Atlas_FC_logo.svg/600px-Atlas_FC_logo.svg.png"
+    },
+    {
+      "name": "Querétaro",
+      "elo": 1495.22271002324,
+      "atk_h": 1.0934312262819552,
+      "def_h": 0.905374451223855,
+      "atk_a": 0.8946255487761451,
+      "def_a": 1.106568773718045,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Quer%C3%A9taro_FC.svg/600px-Quer%C3%A9taro_FC.svg.png"
+    },
+    {
+      "name": "FC Juárez",
+      "elo": 1484.75780352024,
+      "atk_h": 1.0790419798403301,
+      "def_h": 0.91714747103973,
+      "atk_a": 0.8828525289602701,
+      "def_a": 1.12095802015967,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/FC_Juarez.png/600px-FC_Juarez.png"
+    },
+    {
+      "name": "América",
+      "elo": 1575.54210107752,
+      "atk_h": 1.2038703889815903,
+      "def_h": 0.8150151362877899,
+      "atk_a": 0.9849848637122102,
+      "def_a": 0.9961296110184099,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Club_Am%C3%A9rica_1.png/600px-Club_Am%C3%A9rica_1.png"
+    },
+    {
+      "name": "Pachuca",
+      "elo": 1559.22178580281,
+      "atk_h": 1.1814299554788639,
+      "def_h": 0.8333754909718388,
+      "atk_a": 0.9666245090281612,
+      "def_a": 1.0185700445211363,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/CF_Pachuca.svg/600px-CF_Pachuca.svg.png"
+    },
+    {
+      "name": "Monterrey",
+      "elo": 1548.27538335255,
+      "atk_h": 1.1663786521097563,
+      "def_h": 0.8456901937283812,
+      "atk_a": 0.9543098062716188,
+      "def_a": 1.0336213478902436,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/CF_Monterrey.svg/600px-CF_Monterrey.svg.png"
+    },
+    {
+      "name": "Santos Laguna",
+      "elo": 1331.83546375213,
+      "atk_h": 0.8687737626591787,
+      "def_h": 1.089185103278854,
+      "atk_a": 0.7108148967211462,
+      "def_a": 1.3312262373408215,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Santos_Laguna_logo.svg/600px-Santos_Laguna_logo.svg.png"
+    },
+    {
+      "name": "Pumas UNAM",
+      "elo": 1645.69463772378,
+      "atk_h": 1.3003301268701977,
+      "def_h": 0.7360935325607475,
+      "atk_a": 1.0639064674392527,
+      "def_a": 0.8996698731298025,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pumas_UNAM_logo.svg/600px-Pumas_UNAM_logo.svg.png"
+    },
+    {
+      "name": "Toluca",
+      "elo": 1679.51889643042,
+      "atk_h": 1.3468384825918276,
+      "def_h": 0.6980412415157775,
+      "atk_a": 1.1019587584842225,
+      "def_a": 0.8531615174081725,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Deportivo_Toluca_F.C._logo.svg/600px-Deportivo_Toluca_F.C._logo.svg.png"
+    },
+    {
+      "name": "Necaxa",
+      "elo": 1468.32209435362,
+      "atk_h": 1.0564428797362277,
+      "def_h": 0.9356376438521774,
+      "atk_a": 0.8643623561478226,
+      "def_a": 1.1435571202637724,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Club_Necaxa_logo.svg/600px-Club_Necaxa_logo.svg.png"
+    },
+    {
+      "name": "Cruz Azul",
+      "elo": 1675.76563417971,
+      "atk_h": 1.3416777469971015,
+      "def_h": 0.7022636615478262,
+      "atk_a": 1.0977363384521739,
+      "def_a": 0.8583222530028988,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Escudo_del_Cruz_Azul_F%C3%BAtbol_Club.svg/600px-Escudo_del_Cruz_Azul_F%C3%BAtbol_Club.svg.png"
+    },
+    {
+      "name": "León",
+      "elo": 1413.29892795064,
+      "atk_h": 0.9807860259321302,
+      "def_h": 0.99753870605553,
+      "atk_a": 0.8024612939444701,
+      "def_a": 1.21921397406787,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Club_Le%C3%B3n.svg/600px-Club_Le%C3%B3n.svg.png"
+    },
+    {
+      "name": "Atlético San Luis",
+      "elo": 1444.55497466499,
+      "atk_h": 1.0237630901643613,
+      "def_h": 0.9623756535018864,
+      "atk_a": 0.8376243464981137,
+      "def_a": 1.1762369098356389,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Atl%C3%A9tico_San_Luis_logo.svg/600px-Atl%C3%A9tico_San_Luis_logo.svg.png"
+    },
+    {
+      "name": "Tigres UANL",
+      "elo": 1637.99250437968,
+      "atk_h": 1.28973969352206,
+      "def_h": 0.74475843257286,
+      "atk_a": 1.05524156742714,
+      "def_a": 0.9102603064779401,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Tigres_UANL_logo.svg/600px-Tigres_UANL_logo.svg.png"
+    },
+    {
+      "name": "Guadalajara",
+      "elo": 1625.81947032996,
+      "atk_h": 1.2730017717036952,
+      "def_h": 0.758453095878795,
+      "atk_a": 1.041546904121205,
+      "def_a": 0.9269982282963051,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Club_Deportivo_Guadalajara_logo.svg/500px-Club_Deportivo_Guadalajara_logo.svg.png"
+    },
+    {
+      "name": "Morelia",
+      "elo": 1542.64126646184,
+      "atk_h": 1.15863174138503,
+      "def_h": 0.8520285752304301,
+      "atk_a": 0.9479714247695699,
+      "def_a": 1.0413682586149702,
+      "logo": null
+    },
+    {
+      "name": "Veracruz",
+      "elo": 1261.81754387231,
+      "atk_h": 0.7724991228244262,
+      "def_h": 1.1679552631436514,
+      "atk_a": 0.6320447368563488,
+      "def_a": 1.427500877175574,
+      "logo": null
+    },
+    {
+      "name": "Lobos BUAP",
+      "elo": 1387.79069737574,
+      "atk_h": 0.9457122088916425,
+      "def_h": 1.0262354654522925,
+      "atk_a": 0.7737645345477074,
+      "def_a": 1.2542877911083576,
+      "logo": null
+    },
+    {
+      "name": "Chiapas",
+      "elo": 1395.09925363095,
+      "atk_h": 0.9557614737425564,
+      "def_h": 1.0180133396651814,
+      "atk_a": 0.7819866603348188,
+      "def_a": 1.244238526257444,
+      "logo": null
+    },
+    {
+      "name": "Atlante",
+      "elo": 1450,
+      "atk_h": 1.0,
+      "def_h": 1.0,
+      "atk_a": 0.9,
+      "def_a": 1.1,
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Atlante_FC_logo.svg/1200px-Atlante_FC_logo.svg.png"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": 1,
+      "date": "2026-07-16",
+      "home": "Necaxa",
+      "away": "Atlante",
+      "home_goals": 2,
+      "away_goals": 1,
+      "status": "FINISHED",
+      "home_elo": 1468.32209435362,
+      "away_elo": 1450
+    },
+    {
+      "id": 2,
+      "date": "2026-07-16",
+      "home": "Tijuana",
+      "away": "Tigres UANL",
+      "home_goals": 1,
+      "away_goals": 3,
+      "status": "FINISHED",
+      "home_elo": 1601.85370724818,
+      "away_elo": 1637.99250437968
+    },
+    {
+      "id": 3,
+      "date": "2026-07-17",
+      "home": "León",
+      "away": "Atlas",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1413.29892795064,
+      "away_elo": 1479.82458486552
+    },
+    {
+      "id": 4,
+      "date": "2026-07-17",
+      "home": "Atlético San Luis",
+      "away": "Cruz Azul",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1444.55497466499,
+      "away_elo": 1675.76563417971
+    },
+    {
+      "id": 5,
+      "date": "2026-07-17",
+      "home": "FC Juárez",
+      "away": "Puebla",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1484.75780352024,
+      "away_elo": 1318.28569813318
+    },
+    {
+      "id": 6,
+      "date": "2026-07-18",
+      "home": "Pumas UNAM",
+      "away": "Pachuca",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1645.69463772378,
+      "away_elo": 1559.22178580281
+    },
+    {
+      "id": 7,
+      "date": "2026-07-18",
+      "home": "Monterrey",
+      "away": "Santos Laguna",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1548.27538335255,
+      "away_elo": 1331.83546375213
+    },
+    {
+      "id": 8,
+      "date": "2026-07-18",
+      "home": "Guadalajara",
+      "away": "Toluca",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1625.81947032996,
+      "away_elo": 1679.51889643042
+    },
+    {
+      "id": 9,
+      "date": "2026-07-18",
+      "home": "Querétaro",
+      "away": "América",
+      "home_goals": null,
+      "away_goals": null,
+      "status": "TIMED",
+      "home_elo": 1495.22271002324,
+      "away_elo": 1575.54210107752
     }
   ]
 };

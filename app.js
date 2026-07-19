@@ -235,8 +235,13 @@ function renderFixtures() {
     card.setAttribute("data-match-id", f.id);
     
     const pred = state.userPredictions[f.id];
-    const scoreH = pred.scoreHome !== null ? pred.scoreHome : "";
-    const scoreA = pred.scoreAway !== null ? pred.scoreAway : "";
+    let scoreH = pred.scoreHome !== null ? pred.scoreHome : "";
+    let scoreA = pred.scoreAway !== null ? pred.scoreAway : "";
+    const isFinished = f.status === 'FINISHED';
+    if (isFinished && f.home_score !== null && f.away_score !== null) {
+      scoreH = f.home_score;
+      scoreA = f.away_score;
+    }
     
     // Determine highest probability basal outcome
     const win = Math.round(f.win_prob * 100);
@@ -265,9 +270,9 @@ function renderFixtures() {
         <!-- Score Inputs / Prediction Center -->
         <div class="match-center-block">
           <div class="score-inputs-row">
-            <input type="number" min="0" placeholder="-" class="score-input home-score-input" value="${scoreH}" data-match-id="${f.id}">
+            <input type="number" min="0" placeholder="-" class="score-input home-score-input" value="${scoreH}" data-match-id="${f.id}" ${isFinished ? 'disabled' : ''}>
             <span class="score-divider">:</span>
-            <input type="number" min="0" placeholder="-" class="score-input away-score-input" value="${scoreA}" data-match-id="${f.id}">
+            <input type="number" min="0" placeholder="-" class="score-input away-score-input" value="${scoreA}" data-match-id="${f.id}" ${isFinished ? 'disabled' : ''}>
           </div>
           ${f.round >= 4 ? `
           <div class="ko-advanced-selector ${scoreH !== '' && scoreH === scoreA ? '' : 'hidden'}" style="margin-top: 5px; font-size: 0.8rem; text-align: center;">
@@ -1127,6 +1132,10 @@ function renderBracket() {
   const Champion = getMostLikelyWinner(Finalists[0], Finalists[1], "gold");
   const Subchampion = Champion === Finalists[0] ? Finalists[1] : Finalists[0];
 
+  const ThirdContender1 = SF[0][0] === Finalists[0] ? SF[0][1] : SF[0][0];
+  const ThirdContender2 = SF[1][0] === Finalists[1] ? SF[1][1] : SF[1][0];
+  const ThirdPlace = getMostLikelyWinner(ThirdContender1, ThirdContender2, "bronze");
+
   // Render Horizontal Bracket
   const treeContainer = container.querySelector(".bracket-tree");
   treeContainer.innerHTML = "";
@@ -1176,7 +1185,7 @@ function renderBracket() {
     <div class="bronze-card">
       <h4>3ER LUGAR (BRONCE)</h4>
       <!-- We can estimate 3rd place from SF losers or bronze probability -->
-      ${createTeamRowHTML(Champion === Finalists[0] ? Finalists[1] : Finalists[0], "bronze", true)}
+      ${createTeamRowHTML(ThirdPlace, "bronze", true)}
     </div>
   `;
 
