@@ -156,10 +156,9 @@ function initData() {
     // Liga MX Initialization
     // We freeze first 12 rounds (roughly 106 matches) as completed.
     // Remaining rounds (Jornadas 13-17) are simulated "what-if" style.
-    const thresholdIndex = 106;
     
     LIGA_MX_DATA.fixtures.forEach((f, idx) => {
-      const isFinished = idx < thresholdIndex;
+      const isFinished = f.status === 'FINISHED';
       let scoreH = isFinished ? f.home_goals : null;
       let scoreA = isFinished ? f.away_goals : null;
       let outcome = null;
@@ -382,7 +381,25 @@ function renderFixtures() {
             <span class="team-name-label">${f.away_es}</span>
           </div>
         </div>
+      <div class="match-stats-panel hidden"></div>
       `;
+      
+    // Accordion toggle click listener
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".score-input") || e.target.closest(".predictor-buttons") || e.target.closest("button") || e.target.closest(".nav-tab")) {
+        return;
+      }
+      const panel = card.querySelector(".match-stats-panel");
+      if (panel) {
+        const isHidden = panel.classList.contains("hidden");
+        if (isHidden) {
+          document.querySelectorAll(".match-stats-panel").forEach(p => p.classList.add("hidden"));
+          renderMatchStats(f, panel);
+        }
+        panel.classList.toggle("hidden");
+      }
+    });
+
       container.appendChild(card);
     });
   } else {
@@ -458,6 +475,23 @@ function renderFixtures() {
           </div>
         </div>
       `;
+      
+    // Accordion toggle click listener
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".score-input") || e.target.closest(".predictor-buttons") || e.target.closest("button") || e.target.closest(".nav-tab")) {
+        return;
+      }
+      const panel = card.querySelector(".match-stats-panel");
+      if (panel) {
+        const isHidden = panel.classList.contains("hidden");
+        if (isHidden) {
+          document.querySelectorAll(".match-stats-panel").forEach(p => p.classList.add("hidden"));
+          renderMatchStats(f, panel);
+        }
+        panel.classList.toggle("hidden");
+      }
+    });
+
       container.appendChild(card);
     });
   }
@@ -559,6 +593,23 @@ function renderStandings() {
           </tbody>
         </table>
       `;
+      
+    // Accordion toggle click listener
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".score-input") || e.target.closest(".predictor-buttons") || e.target.closest("button") || e.target.closest(".nav-tab")) {
+        return;
+      }
+      const panel = card.querySelector(".match-stats-panel");
+      if (panel) {
+        const isHidden = panel.classList.contains("hidden");
+        if (isHidden) {
+          document.querySelectorAll(".match-stats-panel").forEach(p => p.classList.add("hidden"));
+          renderMatchStats(f, panel);
+        }
+        panel.classList.toggle("hidden");
+      }
+    });
+
       container.appendChild(card);
     });
   } else {
@@ -586,7 +637,24 @@ function renderStandings() {
         </tbody>
       </table>
     `;
-    container.appendChild(card);
+    
+    // Accordion toggle click listener
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".score-input") || e.target.closest(".predictor-buttons") || e.target.closest("button") || e.target.closest(".nav-tab")) {
+        return;
+      }
+      const panel = card.querySelector(".match-stats-panel");
+      if (panel) {
+        const isHidden = panel.classList.contains("hidden");
+        if (isHidden) {
+          document.querySelectorAll(".match-stats-panel").forEach(p => p.classList.add("hidden"));
+          renderMatchStats(f, panel);
+        }
+        panel.classList.toggle("hidden");
+      }
+    });
+
+      container.appendChild(card);
   }
 }
 
@@ -1344,4 +1412,417 @@ function resetPredictions() {
   renderFixtures();
   renderStandings();
   runSimulation(false);
+}
+
+
+function renderMatchStats(f, panel) {
+  const win = f.win_prob;
+  const draw = f.draw_prob;
+  const loss = f.loss_prob;
+  
+  // Calculate expected goals (xG) using a log-odds difference model
+  const diff = 0.9 * Math.log((win + 0.05) / (loss + 0.05));
+  const total = 3.0 - 1.2 * draw;
+  const lambda = Math.max(0.2, (total + diff) / 2);
+  const mu = Math.max(0.2, (total - diff) / 2);
+  
+  // 1. Goal Probabilities (Poisson)
+  const homeProbs = [];
+  const awayProbs = [];
+  let homeSum = 0;
+  let awaySum = 0;
+  
+  for (let k = 0; k <= 4; k++) {
+    const pHome = (Math.exp(-lambda) * Math.pow(lambda, k)) / factorial(k);
+    const pAway = (Math.exp(-mu) * Math.pow(mu, k)) / factorial(k);
+    homeProbs.push(pHome);
+    awayProbs.push(pAway);
+    homeSum += pHome;
+    awaySum += pAway;
+  }
+  
+  // 5+ goals category
+  homeProbs.push(Math.max(0, 1 - homeSum));
+  awayProbs.push(Math.max(0, 1 - awaySum));
+  
+  // 2. Scoreline Grid (6x6 matrix)
+  const scorelineMatrix = [];
+  let maxScoreProb = -1;
+  let maxScoreH = 0;
+  let maxScoreA = 0;
+  
+  for (let h = 0; h <= 5; h++) {
+    scorelineMatrix[h] = [];
+    for (let a = 0; a <= 5; a++) {
+      const p = homeProbs[h] * awayProbs[a];
+      scorelineMatrix[h][a] = p;
+      if (p > maxScoreProb) {
+        maxScoreProb = p;
+        maxScoreH = h;
+        maxScoreA = a;
+      }
+    }
+  }
+  
+  // 3. Over / Under probabilities
+  let probOver1_5 = 0;
+  let probOver2_5 = 0;
+  let probOver3_5 = 0;
+  
+  for (let h = 0; h <= 5; h++) {
+    for (let a = 0; a <= 5; a++) {
+      const p = scorelineMatrix[h][a];
+      if (h + a > 1) probOver1_5 += p;
+      if (h + a > 2) probOver2_5 += p;
+      if (h + a > 3) probOver3_5 += p;
+    }
+  }
+  
+  // 4. Other Markets
+  const btts = (1 - homeProbs[0]) * (1 - awayProbs[0]);
+  const homeCS = awayProbs[0];
+  const awayCS = homeProbs[0];
+  
+  // Shading helper based on probability
+  function getShadingStyle(prob) {
+    const opacity = Math.min(0.85, prob * 6);
+    const textCol = opacity > 0.4 ? '#08090c' : '#ffffff';
+    return `background-color: rgba(0, 230, 118, ${opacity}); color: ${textCol};`;
+  }
+  
+  const pct = (val) => (val * 100).toFixed(1) + "%";
+  
+  panel.innerHTML = `
+    <div class="stats-panel-content">
+      <div class="stats-header-row">
+        <span>xG Proyectado: <strong>${f.home_es} ${lambda.toFixed(2)}</strong> - <strong>${mu.toFixed(2)} ${f.away_es}</strong></span>
+      </div>
+      
+      <div class="stats-goals-barcharts">
+        <div class="team-goals-chart">
+          <h4>Probabilidad de Goles (${f.home_es})</h4>
+          ${homeProbs.map((p, k) => `
+            <div class="goal-bar-row">
+              <span class="goal-num-lbl">${k === 5 ? '5+' : k}</span>
+              <div class="goal-bar-container">
+                <div class="goal-bar home-bg" style="width: ${p * 100}%"></div>
+              </div>
+              <span class="goal-bar-val">${pct(p)}</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="team-goals-chart">
+          <h4>Probabilidad de Goles (${f.away_es})</h4>
+          ${awayProbs.map((p, k) => `
+            <div class="goal-bar-row">
+              <span class="goal-num-lbl">${k === 5 ? '5+' : k}</span>
+              <div class="goal-bar-container">
+                <div class="goal-bar away-bg" style="width: ${p * 100}%"></div>
+              </div>
+              <span class="goal-bar-val">${pct(p)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="stats-scoreline-matrix">
+        <h4>Probabilidad de Marcador Exacto (%)</h4>
+        <div class="matrix-grid-container">
+          <div class="matrix-header-cell">Goles: ${f.away_es} &rarr;</div>
+          ${[0, 1, 2, 3, 4, '5+'].map(g => `<div class="matrix-header-cell col-lbl">${g}</div>`).join('')}
+          
+          ${[0, 1, 2, 3, 4, 5].map((h) => `
+            <div class="matrix-header-cell row-lbl">${h === 5 ? '5+' : h}</div>
+            ${[0, 1, 2, 3, 4, 5].map(a => {
+              const p = scorelineMatrix[h][a];
+              const isMostLikely = h === maxScoreH && a === maxScoreA;
+              return `
+                <div class="matrix-cell ${isMostLikely ? 'most-likely-outline' : ''}" style="${getShadingStyle(p)}">
+                  ${(p * 100).toFixed(1)}
+                </div>
+              `;
+            }).join('')}
+          `).join('')}
+        </div>
+        <p class="matrix-caption">Marcador más probable: <strong>${f.home_es} ${maxScoreH} - ${maxScoreA} ${f.away_es}</strong> (${(maxScoreProb * 100).toFixed(1)}%)</p>
+      </div>
+      
+      <div class="stats-markets">
+        <div class="market-col">
+          <h4>Over / Under</h4>
+          <div class="market-row">
+            <span>Más de 1.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver1_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver1_5)}</span>
+          </div>
+          <div class="market-row">
+            <span>Más de 2.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver2_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver2_5)}</span>
+          </div>
+          <div class="market-row">
+            <span>Más de 3.5</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${probOver3_5 * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(probOver3_5)}</span>
+          </div>
+        </div>
+        <div class="market-col">
+          <h4>Otros Mercados</h4>
+          <div class="market-row">
+            <span>Ambos Anotan (BTTS)</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${btts * 100}%; background-color: var(--draw-color);"></div></div>
+            <span class="market-val">${pct(btts)}</span>
+          </div>
+          <div class="market-row">
+            <span>Arco en Cero (${f.home_es})</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${homeCS * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(homeCS)}</span>
+          </div>
+          <div class="market-row">
+            <span>Arco en Cero (${f.away_es})</span>
+            <div class="market-progress-bar"><div class="progress" style="width: ${awayCS * 100}%; background-color: var(--accent-gold);"></div></div>
+            <span class="market-val">${pct(awayCS)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  let res = 1;
+  for (let i = 2; i <= n; i++) res *= i;
+  return res;
+}
+
+// Normalización de nombres de equipos en español
+function normalizeTeamName(name) {
+  if (!name) return "";
+  let n = name.toString().toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[.\-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  // Manejar abreviación específica de Bosnia y Herzegovina
+  if (n === "bosnia y herzeg") {
+    n = "bosnia y herzegovina";
+  }
+  return n;
+}
+
+// Procesar la subida del Excel
+function handleLayoutUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    try {
+      const data = new Uint8Array(evt.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+      
+      // Buscar hoja de "Mundial"
+      const sheetName = workbook.SheetNames.find(n => n.toLowerCase() === 'mundial') || workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      if (!sheet) {
+        throw new Error("No se encontró la hoja de cálculo en el archivo.");
+      }
+
+      const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      if (!rows || rows.length < 2) {
+        throw new Error("El archivo está vacío o no tiene el formato correcto.");
+      }
+
+      const headerRow = rows[0];
+      const colLocalIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'local');
+      const colResultIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'resultado');
+      const colVisitaIdx = headerRow.findIndex(cell => cell && cell.toString().trim().toLowerCase() === 'visita');
+
+      if (colLocalIdx === -1 || colResultIdx === -1 || colVisitaIdx === -1) {
+        throw new Error("El archivo no tiene las columnas 'Local', 'Resultado' y 'Visita'.");
+      }
+
+      // Crear mapa de partidos en JS para buscar de manera eficiente
+      const fixtureMap = {};
+      WORLD_CUP_DATA.fixtures.forEach(f => {
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
+    }
+  });
+
+      // Limpiar predicciones previas en memoria
+      WORLD_CUP_DATA.fixtures.forEach(f => {
+    if (f.status === 'FINISHED' && f.home_score !== null && f.away_score !== null) {
+      let outcome = "E";
+      if (f.home_score > f.away_score) outcome = "L";
+      if (f.away_score > f.home_score) outcome = "V";
+      state.userPredictions[f.id] = {
+        scoreHome: f.home_score,
+        scoreAway: f.away_score,
+        outcome: outcome
+      };
+    }
+  });
+
+      let parsedCount = 0;
+      let matchedCount = 0;
+
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (!row || row.length === 0) continue;
+
+        const localVal = row[colLocalIdx];
+        const visitaVal = row[colVisitaIdx];
+        const resultVal = row[colResultIdx];
+
+        if (!localVal || !visitaVal) continue;
+
+        parsedCount++;
+
+        const normLocal = normalizeTeamName(localVal);
+        const normVisita = normalizeTeamName(visitaVal);
+        const key = `${normLocal} vs ${normVisita}`;
+
+        const fixture = fixtureMap[key];
+        if (fixture) {
+          matchedCount++;
+          const valStr = resultVal ? resultVal.toString().trim().toUpperCase() : "";
+          if (valStr === "L" || valStr === "E" || valStr === "V") {
+            state.userPredictions[fixture.id].outcome = valStr;
+            state.userPredictions[fixture.id].scoreHome = null;
+            state.userPredictions[fixture.id].scoreAway = null;
+          } else if (valStr.indexOf("-") !== -1 || valStr.indexOf(":") !== -1) {
+            const delimiter = valStr.indexOf("-") !== -1 ? "-" : ":";
+            const parts = valStr.split(delimiter);
+            if (parts.length === 2) {
+              const hScore = parseInt(parts[0].trim());
+              const aScore = parseInt(parts[1].trim());
+              if (!isNaN(hScore) && !isNaN(aScore)) {
+                state.userPredictions[fixture.id].scoreHome = hScore;
+                state.userPredictions[fixture.id].scoreAway = aScore;
+                if (hScore > aScore) state.userPredictions[fixture.id].outcome = "L";
+                else if (hScore < aScore) state.userPredictions[fixture.id].outcome = "V";
+                else state.userPredictions[fixture.id].outcome = "E";
+              }
+            }
+          }
+        }
+      }
+
+      // Reiniciar el input para permitir subir el mismo archivo consecutivamente
+      e.target.value = "";
+
+      // Re-renderizar y simular en memoria
+      renderFixtures();
+      runSimulation(false);
+
+      alert(`¡Carga exitosa! Se procesaron ${parsedCount} partidos y se actualizaron ${matchedCount} predicciones en el simulador.`);
+    } catch (err) {
+      console.error(err);
+      alert("Error al cargar el archivo de quiniela: " + err.message);
+      e.target.value = "";
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+// Generación de código de acceso diario (FNV-1a 32-bit hash)
+function getDailyCode(dateStr, salt = "nexos2026") {
+  let h = 2166136261;
+  const inputStr = `${dateStr}-${salt}`;
+  for (let i = 0; i < inputStr.length; i++) {
+    h = h ^ inputStr.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  const codeNum = h % 1000000;
+  return String(codeNum).padStart(6, '0');
+}
+
+// Bucle periódico del contador de acceso y control de bloqueo (24 horas)
+function startAccessTimerLoop() {
+  const activationTime = new Date("2026-06-11T18:00:00-06:00");
+  const lockScreen = document.getElementById("lock-screen");
+  const timerContainer = document.getElementById("access-timer-container");
+  const timerVal = document.getElementById("access-timer");
+
+  function checkStatus() {
+    const now = new Date();
+    const isPastActivation = now >= activationTime;
+
+    if (!isPastActivation) {
+      // Antes de las 6:00 PM: acceso completamente libre
+      if (lockScreen) lockScreen.classList.add("hidden");
+      if (timerContainer) timerContainer.classList.add("hidden");
+      return;
+    }
+
+    // A partir de las 6:00 PM: acceso controlado activo
+    const isUnlocked = state.isUnlocked;
+    const unlockTime = state.unlockTime;
+
+    if (isUnlocked && unlockTime) {
+      const elapsed = Date.now() - unlockTime;
+      const remaining = 10 * 24 * 60 * 60 * 1000 - elapsed;
+
+      if (remaining <= 0) {
+        // Expiraron las 24 horas: bloquear sitio y borrar llaves en memoria
+        state.isUnlocked = false;
+        state.unlockTime = null;
+        if (lockScreen) lockScreen.classList.remove("hidden");
+        if (timerContainer) timerContainer.classList.add("hidden");
+      } else {
+        // Acceso desbloqueado y vigente: ocultar bloqueo, mostrar contador
+        if (lockScreen) lockScreen.classList.add("hidden");
+        if (timerContainer) timerContainer.classList.remove("hidden");
+        
+        // Formatear contador en HH:MM:SS
+        const totalSecs = Math.floor(remaining / 1000);
+        const hrs = Math.floor(totalSecs / 3600);
+        const mins = Math.floor((totalSecs % 3600) / 60);
+        const secs = totalSecs % 60;
+        
+        if (timerVal) {
+          timerVal.textContent = 
+            String(hrs).padStart(2, '0') + ":" + 
+            String(mins).padStart(2, '0') + ":" + 
+            String(secs).padStart(2, '0');
+        }
+      }
+    } else {
+      // Bloqueado: mostrar pantalla de bloqueo y ocultar contador
+      if (lockScreen) lockScreen.classList.remove("hidden");
+      if (timerContainer) timerContainer.classList.add("hidden");
+    }
+  }
+
+  // Ejecución inicial y luego cada segundo
+  checkStatus();
+  setInterval(checkStatus, 1000);
+}
+
+// Formatear fecha y hora al huso horario de CDMX (UTC-6)
+function formatKickoffMX(kickoffStr, fallbackDate) {
+  if (!kickoffStr) return { date: fallbackDate || "TBD", time: "TBD" };
+  try {
+    const dateObj = new Date(kickoffStr);
+    const datePart = dateObj.toLocaleDateString("sv-SE", { timeZone: "America/Mexico_City" });
+    const timePart = dateObj.toLocaleTimeString("es-MX", {
+      timeZone: "America/Mexico_City",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    });
+    return { date: datePart, time: timePart + " CDMX" };
+  } catch (err) {
+    return { date: fallbackDate || "TBD", time: "TBD" };
+  }
 }
